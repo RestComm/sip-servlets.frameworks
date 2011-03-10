@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <sip-app>
-	<app-name>org.mobicents.servlet.sip.cdimodules.SipRegistar</app-name>
+	<app-name>org.mobicents.servlet.sip.weld.examples.SipRegistar</app-name>
 	<display-name>CDI Sip Servlet Registar</display-name>
 	<description>CDI Sip Servlet Registar</description>
 	
