@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sip-app>
+	<app-name>org.mobicents.servlet.sip.cdimodules.SipRegistar</app-name>
+	<display-name>CDI Sip Servlet Registar</display-name>
+	<description>CDI Sip Servlet Registar</description>
+	
+	<servlet-selection>
+		<main-servlet>
+			SipRegistar
+		</main-servlet>
+	</servlet-selection>
+
+	<servlet>
+		<servlet-name>SipRegistar</servlet-name>
+		<display-name>SipRegistar</display-name>
+		<description>CDI Sip Servlet Registar</description>
+		<servlet-class>
+			org.mobicents.servlet.sip.weld.examples.SipRegistar
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+</sip-app>
