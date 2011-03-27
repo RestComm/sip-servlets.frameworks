@@ -19,14 +19,9 @@ package org.mobicents.servlet.sip.weld.examples;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.Properties;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +42,6 @@ public class SimpleWebServlet extends HttpServlet
 { 	
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SimpleWebServlet.class);
-	private SipFactory sipFactory;	
 
 	/*
 	 * Inject the required beans.
@@ -61,21 +55,10 @@ public class SimpleWebServlet extends HttpServlet
 	@Inject
 	Event<String> event;
 	
-	@Override
-	public void init(ServletConfig config) throws ServletException {		
-		super.init(config);
-		logger.info("the SimpleWebServlet has been started");
-		try { 			
-			// Getting the Sip factory from the JNDI Context
-			Properties jndiProps = new Properties();			
-			Context initCtx = new InitialContext(jndiProps);
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			sipFactory = (SipFactory) envCtx.lookup("sip/ClickToCallAsyncApplication-CDI/SipFactory");
-			logger.info("Sip Factory ref from JNDI : " + sipFactory);
-		} catch (NamingException e) {
-			throw new ServletException("Uh oh -- JNDI problem !", e);
-		}
-	}
+	//Inject the SipFactory. No need to retrieve it from JNDI anymore.
+	@Inject
+	private SipFactory sipFactory;
+	
     /**
      * Handle the HTTP GET method by building a simple web page.
      */

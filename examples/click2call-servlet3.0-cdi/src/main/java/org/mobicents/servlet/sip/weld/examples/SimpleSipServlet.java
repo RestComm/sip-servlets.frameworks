@@ -17,42 +17,42 @@
 package org.mobicents.servlet.sip.weld.examples;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import javax.enterprise.event.Event;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.sip.Address;
 import javax.servlet.sip.SipErrorEvent;
-import javax.servlet.sip.SipErrorListener;
 import javax.servlet.sip.SipFactory;
-import javax.servlet.sip.SipServlet;
 import javax.servlet.sip.SipServletRequest;
 import javax.servlet.sip.SipServletResponse;
 import javax.servlet.sip.SipSession;
-import javax.servlet.sip.annotation.SipListener;
 
 import org.apache.log4j.Logger;
 import org.mobicents.servlet.sip.weld.examples.modules.CallStatusContainer;
 import org.mobicents.servlet.sip.weld.examples.modules.SipRegistarModule;
+import org.mobicents.servlet.sip.weld.extension.event.error.NoAckReceived;
+import org.mobicents.servlet.sip.weld.extension.event.error.NoPrackReceived;
+import org.mobicents.servlet.sip.weld.extension.event.request.Bye;
+import org.mobicents.servlet.sip.weld.extension.event.request.Invite;
+import org.mobicents.servlet.sip.weld.extension.event.request.Options;
+import org.mobicents.servlet.sip.weld.extension.event.request.Register;
+import org.mobicents.servlet.sip.weld.extension.event.response.ErrorResponse;
+import org.mobicents.servlet.sip.weld.extension.event.response.SuccessResponse;
 
-@javax.servlet.sip.annotation.SipServlet(loadOnStartup=1, applicationName="ClickToCallAsyncApplication-CDI")
-@SipListener
-public class SimpleSipServlet extends SipServlet implements SipErrorListener,
-		Servlet {
+public class SimpleSipServlet { 
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SimpleSipServlet.class);
 	private static final String CONTACT_HEADER = "Contact";
-	private SipFactory sipFactory;
 	
 	/*
 	 * Inject the required beans
 	 */
+	
+	//SipFactory injection
+	@Inject
+	private SipFactory sipFactory;
 	
 	//sipRegistar will process the Registration request 
 	@Inject
@@ -66,42 +66,29 @@ public class SimpleSipServlet extends SipServlet implements SipErrorListener,
 	@Inject
 	Event<String> event;
 	
-	
 	public SimpleSipServlet() {
 	}
 	
-	@Override
-	public void init(ServletConfig servletConfig) throws ServletException {
-		super.init(servletConfig);
-		logger.info("the simple sip servlet has been started");
-		try { 			
-			// Getting the Sip factory from the JNDI Context
-			Properties jndiProps = new Properties();			
-			Context initCtx = new InitialContext(jndiProps);
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			sipFactory = (SipFactory) envCtx.lookup("sip/ClickToCallAsyncApplication-CDI/SipFactory");
-			logger.info("Sip Factory ref from JNDI : " + sipFactory);
-		} catch (NamingException e) {
-			throw new ServletException("Uh oh -- JNDI problem !", e);			
-		}
-	}
+
+	/*
+	 * The following methods will handle SIP requests and responses.  Using CTF, in order to get notified for a SIP request or response you
+	 * have to register for the appropriate event by using @Observe @SipEvent. The name of the method is insignificant but here we kept the
+	 * names of methods to doMethod, similar to SipServlet methods, for the sake of clarity.  
+	 */
 	
-	@Override
-	protected void doInvite(SipServletRequest req) throws ServletException,
+	protected void doInvite(@Observes @Invite SipServletRequest req) throws ServletException,
 			IOException {
 		logger.info("Click2Dial don't handle INVITE. Here's the one we got :  " + req.toString());
 		
 	}
 	
-	@Override
-	protected void doOptions(SipServletRequest req) throws ServletException,
+	protected void doOptions(@Observes @Options SipServletRequest req) throws ServletException,
 			IOException {
 		logger.info("Got :  " + req.toString());
 		req.createResponse(SipServletResponse.SC_OK).send();
 	}
 	
-	@Override
-    protected void doSuccessResponse(SipServletResponse resp)
+    protected void doSuccessResponse(@Observes @SuccessResponse SipServletResponse resp)
 			throws ServletException, IOException {
 		logger.info("Got OK");
 		SipSession session = resp.getSession();
@@ -167,8 +154,7 @@ public class SimpleSipServlet extends SipServlet implements SipErrorListener,
 		}
 	}
 	
-	@Override
-	protected void doErrorResponse(SipServletResponse resp) throws ServletException,
+	protected void doErrorResponse(@Observes @ErrorResponse SipServletResponse resp) throws ServletException,
 			IOException {
 		// If someone rejects it remove the call from the table
 		calls.removeCall(resp.getFrom().getURI().toString(), resp.getTo().getURI().toString());
@@ -176,8 +162,7 @@ public class SimpleSipServlet extends SipServlet implements SipErrorListener,
 
 	}
 
-	@Override
-	protected void doBye(SipServletRequest request) throws ServletException,
+	protected void doBye(@Observes @Bye SipServletRequest request) throws ServletException,
 			IOException {
 		logger.info("Got bye");
 		SipSession session = request.getSession();
@@ -196,34 +181,15 @@ public class SimpleSipServlet extends SipServlet implements SipErrorListener,
 		event.fire("Received Bye request");
 	}
     
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void doResponse(SipServletResponse response)
-			throws ServletException, IOException {
-
-		logger.info("SimpleProxyServlet: Got response:\n" + response);
-		super.doResponse(response);
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public void noAckReceived(SipErrorEvent ee) {
+	public void noAckReceived(@Observes @NoAckReceived SipErrorEvent ee) {
 		logger.info("SimpleProxyServlet: Error: noAckReceived.");
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
-	public void noPrackReceived(SipErrorEvent ee) {
+	public void noPrackReceived(@Observes @NoPrackReceived SipErrorEvent ee) {
 		logger.info("SimpleProxyServlet: Error: noPrackReceived.");
 	}
-	
-	
-	protected void doRegister(SipServletRequest req) throws ServletException, IOException {
+		
+	protected void doRegister(@Observes @Register SipServletRequest req) throws ServletException, IOException {
 		
 		sipRegistar.doRegister(req);
 		event.fire("Received Register event");

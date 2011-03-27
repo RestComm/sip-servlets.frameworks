@@ -23,6 +23,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 import org.mobicents.servlet.sip.weld.examples.Call;
 
+// Module responsible to hold the calls
 
 @ApplicationScoped
 public class CallStatusContainer{
