@@ -1,16 +1,12 @@
 package org.mobicents.servlet.sip.weld.extension.sessionlisteners;
 
-import javax.enterprise.inject.Produces;
 import javax.servlet.sip.SipApplicationSession;
 import javax.servlet.sip.SipApplicationSessionEvent;
 import javax.servlet.sip.SipApplicationSessionListener;
-import javax.servlet.sip.annotation.SipListener;
 
 import org.mobicents.servlet.sip.weld.extension.context.sip.SipApplicationSessionContext;
-import org.mobicents.servlet.sip.weld.extension.context.sip.SipApplicationSessionContextImpl;
-import org.mobicents.servlet.sip.weld.extension.context.sip.SipApplicationSessionScoped;
 
-@SipListener
+//@SipListener
 public class SipApplicationSessionContextInitialization implements SipApplicationSessionListener
 {
 
