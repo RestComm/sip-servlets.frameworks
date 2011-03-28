@@ -3,33 +3,25 @@ package org.mobicents.servlet.sip.weld.examples;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Named;
-import javax.inject.Singleton;
 import javax.servlet.ServletException;
 import javax.servlet.sip.Address;
-import javax.servlet.sip.SipServlet;
 import javax.servlet.sip.SipServletRequest;
 import javax.servlet.sip.SipServletResponse;
 
 import org.apache.log4j.Logger;
 
-
-
-@Singleton
-@Named("sipRegistar")
-@javax.servlet.sip.annotation.SipServlet(loadOnStartup=1, applicationName="SipRegistarClientAS5")
-public class SipRegistar extends SipServlet {
+@ApplicationScoped
+public class SipRegistar {
 
 	private static final long serialVersionUID = -4015553877084116786L;
 	private static Logger logger = Logger.getLogger(SipRegistar.class);
 	private static final String CONTACT_HEADER = "Contact";
 	
+	@Produces HashMap<String, String> users = new HashMap<String, String>();
 	
-	@Produces @Named("users") HashMap<String, String> users = new HashMap<String, String>();
 	
-	
-	@Override
 	public void doRegister(SipServletRequest req) throws ServletException,
 			IOException {
 		if(logger.isInfoEnabled()) {

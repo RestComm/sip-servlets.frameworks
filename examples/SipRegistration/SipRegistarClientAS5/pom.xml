@@ -34,7 +34,7 @@
 
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
-			<artifactId>sip-servlets-weld</artifactId>
+			<artifactId>sip-servlets-weld-jboss5</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 

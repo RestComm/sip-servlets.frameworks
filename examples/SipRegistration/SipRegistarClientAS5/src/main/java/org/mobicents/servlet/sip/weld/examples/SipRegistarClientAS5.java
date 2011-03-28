@@ -2,29 +2,22 @@ package org.mobicents.servlet.sip.weld.examples;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
+import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
+import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.util.AnnotationLiteral;
 import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.sip.SipFactory;
-import javax.servlet.sip.SipServlet;
 import javax.servlet.sip.SipServletRequest;
-import javax.servlet.sip.URI;
 
-import javax.enterprise.inject.spi.Bean;
 import org.apache.log4j.Logger;
+import org.mobicents.servlet.sip.weld.extension.event.request.Register;
 
-
-@javax.servlet.sip.annotation.SipServlet(loadOnStartup=1, applicationName="SipRegistarClientAS5")
-public class SipRegistarClientAS5 extends SipServlet implements Servlet {
+public class SipRegistarClientAS5 {
 
 	private static final long serialVersionUID = -3118672071188405646L;
 
@@ -33,26 +26,16 @@ public class SipRegistarClientAS5 extends SipServlet implements Servlet {
 	@Inject 
 	SipRegistar sipRegistar; 
 
-	@Inject @Named("users")
+	@Inject
 	HashMap<String, String> users;
 	
 	@Inject
 	BeanManager beanManager;
 
-	Map<String, List<URI>> registeredUsers = null;
-
+	@Inject
 	SipFactory sipFactory;
 
-	@Override
-	public void init(ServletConfig servletConfig) throws ServletException {
-		super.init(servletConfig);
-		//Get the SipFactory
-		sipFactory = (SipFactory)getServletContext().getAttribute(SIP_FACTORY);
-
-	}
-
-	@Override
-	protected void doRegister(SipServletRequest req) throws ServletException, IOException {
+	protected void doRegister(@Observes @Register SipServletRequest req) throws ServletException, IOException {
 		
 		logger.info("Start printing the beans inside the BeanManager");
 		
