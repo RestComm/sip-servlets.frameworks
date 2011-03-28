@@ -20,7 +20,6 @@ import javassist.util.proxy.ProxyFactory;
 import javassist.util.proxy.ProxyFactory.ClassLoaderProvider;
 
 import javax.el.ELContextListener;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -45,10 +44,7 @@ import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
 import org.mobicents.servlet.sip.weld.environment.mssjboss5.SipWeldForwardingJbossInstanceManager;
 import org.mobicents.servlet.sip.weld.environment.msstomcat6.SipWeldForwardingAnnotationProcessor;
 import org.mobicents.servlet.sip.weld.environment.msstomcat7.SipWeldForwardingInstanceManager;
-import org.mobicents.servlet.sip.weld.extension.ConvergedApplication;
 import org.mobicents.servlet.sip.weld.extension.SipServletObjectsHolder.InternalServletContextEvent;
-import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionContext;
-import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionScoped;
 import org.mobicents.servlet.sip.weld.extension.event.context.literal.DestroyedLiteral;
 import org.mobicents.servlet.sip.weld.extension.event.context.literal.InitializedLiteral;
 import org.slf4j.Logger;
