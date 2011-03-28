@@ -24,6 +24,10 @@ import org.jboss.weld.environment.tomcat7.WeldForwardingInstanceManager;
 import org.jboss.weld.manager.api.WeldManager;
 import org.mobicents.servlet.sip.annotations.SipInstanceManager;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
+import org.mobicents.servlet.sip.startup.SipContext;
+import org.mobicents.servlet.sip.startup.SipStandardContext;
+import org.mobicents.servlet.sip.startup.loading.SipServletImpl;
+import org.mobicents.servlet.sip.weld.extension.ConvergedApplication;
 
 
 public class SipWeldForwardingInstanceManager extends SipForwardingInstanceManager { 
@@ -79,31 +83,6 @@ public class SipWeldForwardingInstanceManager extends SipForwardingInstanceManag
 	   {
 	      StandardContext stdContext = getStandardContext(sce);
 	      setInstanceManager(stdContext, createInstance(manager, stdContext));
-	      
-	      /*
-	       * Inject a SipServlet to initialize SipFactory
-	       */
-	    		  
-//	      
-//	      if (stdContext instanceof SipStandardContext){
-//			  String injectedServletClass = "org.mobicents.servlet.sip.weld.extension.SipServletTools";
-////	    	  String injectedServletClass = "org.mobicents.servlet.sip.weld.weldentrypoint.WeldEntryPointServlet";
-//			  Object injectedServlet = 
-//				  org.jboss.weld.environment.servlet.util.Reflections.newInstance(injectedServletClass);
-//			  
-//			  SipServletImpl parsedServletData = (SipServletImpl) stdContext.createWrapper();
-//			  
-//				parsedServletData.setName("sipServletTools");
-//				parsedServletData.setServletName("sipServletTools");
-//				parsedServletData.setDisplayName("sipServletTools");
-//				parsedServletData.setDescription("sipServletTools");
-//				parsedServletData.setServletClass(injectedServlet.getClass().getCanonicalName());
-//				parsedServletData.setLoadOnStartup(1);
-//				parsedServletData.setParent(stdContext);
-//				((SipStandardContext) stdContext).addChild(parsedServletData);
-//			  
-////				((SipStandardContext) stdContext).setMainServlet(parsedServletData.getName());
-//	      }
 	   }
 
 	private static SipWeldForwardingInstanceManager createInstance(WeldManager manager, StandardContext stdContext)

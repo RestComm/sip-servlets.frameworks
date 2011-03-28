@@ -20,6 +20,7 @@ import javassist.util.proxy.ProxyFactory;
 import javassist.util.proxy.ProxyFactory.ClassLoaderProvider;
 
 import javax.el.ELContextListener;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -44,6 +45,12 @@ import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
 import org.mobicents.servlet.sip.weld.environment.mssjboss5.SipWeldForwardingJbossInstanceManager;
 import org.mobicents.servlet.sip.weld.environment.msstomcat6.SipWeldForwardingAnnotationProcessor;
 import org.mobicents.servlet.sip.weld.environment.msstomcat7.SipWeldForwardingInstanceManager;
+import org.mobicents.servlet.sip.weld.extension.ConvergedApplication;
+import org.mobicents.servlet.sip.weld.extension.SipServletObjectsHolder.InternalServletContextEvent;
+import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionContext;
+import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionScoped;
+import org.mobicents.servlet.sip.weld.extension.event.context.literal.DestroyedLiteral;
+import org.mobicents.servlet.sip.weld.extension.event.context.literal.InitializedLiteral;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,6 +71,7 @@ public class SipServletsWeldListener extends ForwardingServletListener
 
 	private final transient Bootstrap bootstrap;
 	private final transient ServletListener weldListener;
+	private transient WeldManager manager; 
 
 	public SipServletsWeldListener()
 	{
@@ -90,6 +98,8 @@ public class SipServletsWeldListener extends ForwardingServletListener
 	@Override
 	public void contextDestroyed(ServletContextEvent sce)
 	{
+		manager.fireEvent(new InternalServletContextEvent(sce.getServletContext()), DestroyedLiteral.INSTANCE);
+		
 		bootstrap.shutdown();
 		try
 		{
@@ -107,7 +117,7 @@ public class SipServletsWeldListener extends ForwardingServletListener
 			sce.getServletContext().removeAttribute(INJECTOR_ATTRIBUTE_NAME);
 		}
 		catch (IllegalArgumentException ignore) {}
-		super.contextDestroyed(sce);
+		super.contextDestroyed(sce);		
 	}
 
 	/**
@@ -182,14 +192,14 @@ public class SipServletsWeldListener extends ForwardingServletListener
 		}
 
 		bootstrap.startContainer(Environments.SERVLET, deployment).startInitialization();
-		WeldManager manager = bootstrap.getManager(deployment.getWebAppBeanDeploymentArchive());
+		manager = bootstrap.getManager(deployment.getWebAppBeanDeploymentArchive());
 
 		boolean tomcat = false;
 		boolean mss1tomcat = false;
 		boolean mss1jboss5 = false;
 		boolean tomcat7 = false;
 		boolean mss2tomcat = false;
-		
+
 		try
 		{
 			Reflections.classForName("org.apache.InstanceManager");
@@ -220,7 +230,7 @@ public class SipServletsWeldListener extends ForwardingServletListener
 				mss1tomcat = false;
 			}
 		}
-		
+
 		if(mss1jboss5){
 			try
 			{
@@ -350,6 +360,10 @@ public class SipServletsWeldListener extends ForwardingServletListener
 
 		bootstrap.deployBeans().validateBeans().endInitialization();
 		super.contextInitialized(sce);
+
+		//Initialize SipServlets tools
+//		ConvergedApplication convergedApplication = new ConvergedApplication(sce.getServletContext());
+		manager.fireEvent(new InternalServletContextEvent(sce.getServletContext()), InitializedLiteral.INSTANCE);
 	}
 
 	@Override

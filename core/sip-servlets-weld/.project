@@ -7,7 +7,7 @@
     <project>sip-servlets-impl</project>
     <project>sip-servlets-jruby</project>
     <project>sip-servlets-spec</project>
-    <project>tomcat-7</project>
+    <project>sip-servlets-tomcat-7</project>
   </projects>
   <buildSpec>
     <buildCommand>

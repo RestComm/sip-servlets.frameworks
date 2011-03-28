@@ -66,7 +66,7 @@
 			<version>${mss2.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+<!--
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
 			<artifactId>sip-servlets-jboss5</artifactId>
@@ -80,7 +80,7 @@
 			<version>${mss1.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+-->
 		<!-- JBossWeb dependencies -->
 		<dependency>
 			<groupId>jboss.web</groupId>
