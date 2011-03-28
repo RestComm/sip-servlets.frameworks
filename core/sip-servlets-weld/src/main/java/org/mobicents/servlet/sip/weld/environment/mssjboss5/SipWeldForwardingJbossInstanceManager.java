@@ -18,7 +18,6 @@ import org.apache.InstanceManager;
 import org.apache.catalina.core.ApplicationContext;
 import org.apache.catalina.core.ApplicationContextFacade;
 import org.apache.catalina.core.StandardContext;
-import org.jboss.weld.environment.tomcat7.WeldForwardingInstanceManager;
 import org.jboss.weld.manager.api.WeldManager;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
 
@@ -128,7 +127,7 @@ public class SipWeldForwardingJbossInstanceManager extends SipForwardingJbossIns
 	   {
 	      StandardContext stdContext = getStandardContext(sce);
 	      InstanceManager im = getInstanceManager(stdContext);
-	      if (im instanceof WeldForwardingInstanceManager)
+	      if (im instanceof SipWeldForwardingJbossInstanceManager)
 	      {
 	         setInstanceManager(stdContext, ((SipWeldForwardingJbossInstanceManager) im).firstProcessor);
 	      }
