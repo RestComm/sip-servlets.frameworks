@@ -5,9 +5,4 @@
 	<display-name>Simple Sip Servlet</display-name>
 	<description>Simple Sip Servlet</description>
 
-	<servlet-selection>
-		<main-servlet>
-			SipRegistarClientAS5
-		</main-servlet>
-	</servlet-selection>
 </sip-app>

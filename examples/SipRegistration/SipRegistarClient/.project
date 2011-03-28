@@ -4,7 +4,6 @@
   <projects>
     <project>sip-servlets-spec</project>
     <project>sip-servlets-weld</project>
-    <project>SipRegistar</project>
   </projects>
   <buildSpec>
     <buildCommand>

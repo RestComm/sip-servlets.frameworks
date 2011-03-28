@@ -37,13 +37,11 @@ public class SipRegistarClientAS5 {
 
 	protected void doRegister(@Observes @Register SipServletRequest req) throws ServletException, IOException {
 		
-		logger.info("Start printing the beans inside the BeanManager");
-		
-		Set<Bean<?>> allBeans = beanManager.getBeans(Object.class, new AnnotationLiteral<Any>() {});
-		
-		for (Bean<?> bean : allBeans) {
-			logger.info("Registered bean name: "+bean.getName());
-		}
+//		Set<Bean<?>> allBeans = beanManager.getBeans(Object.class, new AnnotationLiteral<Any>() {});
+//		
+//		for (Bean<?> bean : allBeans) {
+//			logger.info("Registered bean name: "+bean.getName());
+//		}
 		
 		String from = req.getFrom().getURI().toString();
 		if (users!=null && users.containsKey(from)){

@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.sip.SipFactory;
 import javax.servlet.sip.SipServletRequest;
@@ -22,7 +21,7 @@ public class SipRegistarClient25 {
 	@Inject 
 	SipRegistar sipRegistar; 
 
-	@Inject @Named("users")
+	@Inject
 	HashMap<String, String> users;
 
 	@Inject
