@@ -1,8 +1,7 @@
 <projectDescription>
   <name>click2call-servlet3.0-cdi</name>
-  <comment>Mobicents :: Parent pom for 1.x releases. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>sip-servlets-spec</project>
     <project>sip-servlets-weld</project>
   </projects>
   <buildSpec>
