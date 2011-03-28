@@ -2,12 +2,8 @@
   <name>sip-servlets-weld</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>sip-servlets-annotations</project>
-    <project>sip-servlets-client</project>
     <project>sip-servlets-impl</project>
-    <project>sip-servlets-jruby</project>
-    <project>sip-servlets-spec</project>
-    <project>sip-servlets-tomcat-7</project>
+    <project>tomcat-7</project>
   </projects>
   <buildSpec>
     <buildCommand>
