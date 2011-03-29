@@ -1,15 +1,12 @@
 package org.mobicents.servlet.sip.weld.environment.mssjboss5;
 
 import java.lang.reflect.InvocationTargetException;
-
 import javax.naming.NamingException;
 
 
 import org.apache.InstanceManager;
-//import org.jboss.weld.environment.tomcat7.ForwardingInstanceManager;
-//import org.mobicents.servlet.sip.annotations.SipInstanceManager;
 
-public abstract class SipForwardingJbossInstanceManager implements org.apache.InstanceManager{ //extends ForwardingInstanceManager
+public abstract class SipForwardingJbossInstanceManager implements org.apache.InstanceManager{ 
 
 	   protected abstract InstanceManager delegate();
 
