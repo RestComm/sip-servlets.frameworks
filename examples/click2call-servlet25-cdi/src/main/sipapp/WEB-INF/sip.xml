@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sip-app>
+
+	<app-name>Click2CallServlet25-CDI</app-name>
+	<display-name>Click2CallServlet25-CDI</display-name>
+	<description>Click2CallServlet25-CDI</description>
+
+</sip-app>
