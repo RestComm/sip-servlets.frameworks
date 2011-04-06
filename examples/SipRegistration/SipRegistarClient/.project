@@ -2,7 +2,6 @@
   <name>SipRegistarClient</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>sip-servlets-spec</project>
     <project>sip-servlets-weld</project>
   </projects>
   <buildSpec>
