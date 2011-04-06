@@ -41,7 +41,6 @@ import org.jboss.weld.manager.api.WeldManager;
 import org.jboss.weld.servlet.api.ServletListener;
 import org.jboss.weld.servlet.api.helpers.ForwardingServletListener;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
-import org.mobicents.servlet.sip.weld.environment.mssjboss5.SipWeldForwardingJbossInstanceManager;
 import org.mobicents.servlet.sip.weld.environment.msstomcat6.SipWeldForwardingAnnotationProcessor;
 import org.mobicents.servlet.sip.weld.environment.msstomcat7.SipWeldForwardingInstanceManager;
 import org.mobicents.servlet.sip.weld.extension.SipServletObjectsHolder.InternalServletContextEvent;
@@ -228,15 +227,7 @@ public class SipServletsWeldListener extends ForwardingServletListener
 		}
 
 		if(mss1jboss5){
-			try
-			{
-				SipWeldForwardingJbossInstanceManager.replaceInstanceManager(sce,manager);
-				log.info("MSS 1.x detected on JBoss AS5, CDI injection will be available in Servlets and Filters. Injection into Listeners is not supported");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to replace MSS 1.x on JBoss AS5 InstanceManager. CDI injection will not be available in Servlets, Filters, or Listeners", e);
-			}
+			log.error("Current project doesn't support JBoss AS5. Use sip-servlets-weld-jboss5");
 		}
 
 		if(mss1tomcat){
