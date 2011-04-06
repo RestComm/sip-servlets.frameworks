@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.mobicents.servlet.sip.weld</groupId>
+	<artifactId>sip-servlets-weld-core</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>sip-servlets-weld</module>
+		<module>sip-servlets-weld-jboss5</module>
+	</modules>
+
+	<properties>
+		<log4j.version>1.2.14</log4j.version>
+		<tomcat7.version>7.0.8</tomcat7.version>
+		<tomcat6.version>6.0.29</tomcat6.version>
+		<jboss5.version>5.1.0.GA</jboss5.version>
+
+		<mss1.version>1.6.0-SNAPSHOT</mss1.version>
+		<mss2.version>2.0.0-SNAPSHOT</mss2.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- CTF artifacts -->
+			<dependency>
+				<groupId>org.mobicents.servlet.sip.weld</groupId>
+				<artifactId>sip-servlets-weld</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mobicents.servlet.sip.weld</groupId>
+				<artifactId>sip-servlets-weld-jboss5</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.1</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Weld Dependencies -->
+			<dependency>
+				<groupId>org.jboss.weld.servlet</groupId>
+				<artifactId>weld-servlet</artifactId>
+				<version>1.1.0.Final</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.weld.servlet</groupId>
+				<artifactId>weld-servlet</artifactId>
+				<scope>runtime</scope>
+				<classifier>jboss5</classifier>
+				<version>1.1.0.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+			<!-- Mobicents Dependencies -->
+			<dependency>
+				<groupId>org.mobicents.servlet.sip</groupId>
+				<artifactId>sip-servlets-tomcat-7</artifactId>
+				<version>${mss2.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mobicents.servlet.sip</groupId>
+				<artifactId>sip-servlets-impl</artifactId>
+				<version>${mss2.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mobicents.servlet.sip</groupId>
+				<artifactId>sip-servlets-jboss5</artifactId>
+				<version>${mss1.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mobicents.servlet.sip</groupId>
+				<artifactId>sip-servlets-spec</artifactId>
+				<version>${mss2.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+
+			<!-- JBossWeb dependencies -->
+			<dependency>
+				<groupId>jboss.web</groupId>
+				<artifactId>jbossweb</artifactId>
+				<version>2.1.3.GA</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Tomcat 7 Dependencies -->
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-catalina</artifactId>
+				<version>${tomcat7.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Tomcat 6 Dependencies -->
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>catalina</artifactId>
+				<version>${tomcat6.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
