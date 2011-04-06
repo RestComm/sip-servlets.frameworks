@@ -9,7 +9,5 @@ mvn clean compile war:war
 
 And deploy the generated war file to MSS 1.x on Tomcat.
 
- 
-If you want to REGISTER use this as a DAR file:
-REGISTER:("org.mobicents.servlet.sip.example.SimpleAsyncApplication", "DAR:From", "ORIGINATING", "", "NO_ROUTE", "0")
-OPTIONS:("org.mobicents.servlet.sip.example.SimpleAsyncApplication", "DAR:From", "ORIGINATING", "", "NO_ROUTE", "0")
+In order to deploy to JBoss AS5:
+mvn clean compile war:war -Pjboss5
