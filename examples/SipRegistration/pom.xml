@@ -15,20 +15,11 @@
 	</properties>
 
 	<modules>
-		<module>SipRegistar</module>
 		<module>SipRegistarClient</module>
-	 	<module>SipRegistarClient25</module>
-		<!-- <module>SipRegistarClientAS5</module> -->
+		<module>SipRegistarClient25</module>
 	</modules>
 
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -39,7 +30,7 @@
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
 			<artifactId>sip-servlets-spec</artifactId>
-			<version>2.0.0-SNAPSHOT</version>
+			<version>1.6.0-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -52,9 +43,9 @@
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
-			<version>1.1.0.Final</version>			
+			<version>1.1.0.Final</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
