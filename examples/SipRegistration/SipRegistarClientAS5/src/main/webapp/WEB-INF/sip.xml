@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<sip-app>
-	<app-name>SipRegistarClientAS5</app-name>
-	<display-name>Simple Sip Servlet</display-name>
-	<description>Simple Sip Servlet</description>
-
-</sip-app>
