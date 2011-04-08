@@ -9,3 +9,4 @@ sip-servlets-weld core project. Provides the bootstrap functionality and basic s
 In order to build, in the top core/ directory run:
 mvn clean compile install
 
+** Use Maven 2.x to build
