@@ -5,8 +5,4 @@
 	<display-name>Simple Sip Servlet</display-name>
 	<description>Simple Sip Servlet</description>
 
-	<listener>
-		<listener-class>org.mobicents.servlet.sip.weld.environment.servlet.SipServletsWeldListener</listener-class>
-	</listener>
-
 </sip-app>

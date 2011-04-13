@@ -53,7 +53,6 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
-					<containerConfigXML>src/main/resources/META-INF/context.xml</containerConfigXML>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
