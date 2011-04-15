@@ -22,6 +22,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.mobicents.servlet.sip.weld</groupId>
+			<artifactId>sip-servlets-weld</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<scope>provided</scope>

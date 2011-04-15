@@ -44,6 +44,7 @@ import org.mobicents.servlet.sip.weld.environment.msstomcat6.SipWeldForwardingAn
 import org.mobicents.servlet.sip.weld.extension.SipServletObjectsHolder.InternalServletContextEvent;
 import org.mobicents.servlet.sip.weld.extension.event.context.literal.DestroyedLiteral;
 import org.mobicents.servlet.sip.weld.extension.event.context.literal.InitializedLiteral;
+import org.mobicents.servlet.sip.weld.extension.context.sip.Sip;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,6 +52,7 @@ import org.slf4j.LoggerFactory;
  * @author Pete Muir
  * @author Ales Justin
  */
+@Sip
 public class SipServletsWeldListener extends ForwardingServletListener 
 {
 	private static final Logger log = LoggerFactory.getLogger(SipServletsWeldListener.class);

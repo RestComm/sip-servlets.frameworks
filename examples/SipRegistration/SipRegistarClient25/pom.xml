@@ -88,7 +88,7 @@
 						<configuration>
 							<warSourceDirectory>
 								${basedir}/src/main/sipapp
-					</warSourceDirectory>
+							</warSourceDirectory>
 							<warName>${project.artifactId}-${project.version}-tomcat</warName>
 						</configuration>
 					</plugin>
@@ -127,7 +127,7 @@
 						<configuration>
 							<warSourceDirectory>
 								${basedir}/src/main/sipapp
-					</warSourceDirectory>
+							</warSourceDirectory>
 							<warName>${project.artifactId}-${project.version}-jboss5</warName>
 						</configuration>
 					</plugin>
