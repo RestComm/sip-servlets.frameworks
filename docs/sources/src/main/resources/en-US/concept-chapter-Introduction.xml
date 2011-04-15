@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CDI_Telco_Framework_User_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="Introduction_to_the_CDI_Telco_Framework">
+  <title>Introduction to the CDI Telco Framework</title>
+  <para>CDI is the Java standard for dependency injection and contextual lifecycle management, led by Gavin King for Red Hat, Inc. and is a Java Community Process(JCP) specification that integrates cleanly with the Java EE platform. Any Java EE 6-compliant application server provides support for JSR-299 (even the web profile). It seemed a natural fit create a new framework based on CDI for the Telco world.</para>
+  <para>CDI-Telco-Framework (CTF) from &PLATFORM_NAME; brings the power and productivity benefits of CDI into the &PLATFORM_NAME; Sip Servlets platform providing dependency injection and contextual lifecycle management for converged HTTP/SIP applications. This new framework is intended to become a replacement for our previous Seam Telco Framework.</para>
+  <para>CTF mission statement is to simplify SipServlets development by introducing a component based programming model, ease of development by making available SIP utilities out of the box, and finally providing dependency injection and contextual lifecycle management to the SipServlets.</para>
+    <figure>
+      <title>The framework is based on CDI and will stand as an extension to the core.</title>
+      <mediaobject id="CDI_Telco_Framework_Extension">
+        <imageobject>
+          <imagedata width="550" align="center" fileref="images/CDI_Telco_Framework_Extension.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <formalpara id="CDI_Telco_Framework_Container_Support">
+      <title>Container Support</title>
+      <para>CTF supports &PLATFORM_NAME; Sip Servlets 1.x (JBoss AS5 - Tomcat 6.x) and &PLATFORM_NAME; Sip Servlets 2.x (Tomcat 7.x).</para>
+    </formalpara>
+    <note>
+      <para>Support for JBoss AS5 is the same as in the Servlet environment (no EJB support, no transactions etc).</para>
+    </note>
+    <para>CTF consists of</para>
+    <itemizedlist id="CDI_Telco_Framework_Parts">
+      <title>CDI Telco Framework Parts</title>
+       <listitem>
+          <para>The first part is responsible to CDI-enable a converged application.</para>
+        </listitem>      
+	<listitem>
+          <para>The second part is responsible to make available the SipFactory, SipSessionsUtils, TimerService and also to propage Sip requests and responses to applications.</para>
+        </listitem>      
+    </itemizedlist>
+</chapter>
