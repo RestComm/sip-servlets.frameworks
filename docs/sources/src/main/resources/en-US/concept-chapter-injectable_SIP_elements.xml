@@ -5,7 +5,7 @@
 ]>
 <!-- chapter id nickname: ittsss --><chapter id="Injectable_SIP_Elements_CDI_Telco_Framework">
   <title>Injectable SIP Elements</title>
-  <para>To ease the development of SIP Servlets applications, CTF goes all the way down and makes available injection of the following SIP elements:</para>
+  <para>To ease the development of SIP Servlets applications, CTF goes all the way down and makes available for injection the following SIP elements:</para>
 <table id="tab-CTF_Injectable_Element" frame='all'>
       <title>CTF Injectable SIP elements</title>
         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
@@ -39,5 +39,5 @@
       </tbody>
     </tgroup>
     </table>
-<para>You no longer need to retrieve SipFactory from JNDI (even though that was already made possible through the @Resource annotation) or SipSession from the request or the response. Just inject them in the application.</para>
+<para>You no longer need to retrieve SipFactory from JNDI (even though that was already made possible through the @Resource annotation) or SipSession from the request or the response. Just inject them in your application.</para>
 </chapter>
