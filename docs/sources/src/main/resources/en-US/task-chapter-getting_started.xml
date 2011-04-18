@@ -26,8 +26,8 @@
 		</dependency>
 		]]>
 </programlisting>
-<note>Make sure you use the JBoss public maven repository:
-<programlisting language="Xml" role="XML">
+<note><para>Make sure you use the JBoss public maven repository:
+<programlisting>
 	<![CDATA[
 				<repository>
                         <id>jboss-public-repository-group</id>
@@ -45,10 +45,10 @@
                 </repository>	
 		]]>
 </programlisting>
-</note>
+</para></note>
 
 <para>The CTF listener that you have to register in your application is:</para>
-<programlisting language="Xml" role="XML">
+<programlisting>
 	<![CDATA[
 	<listener>
 		<listener-class>
@@ -87,8 +87,8 @@
 
 <para>To build issue mvn clean compile package for each project and deploy accordingly</para>
 
-<note wordsize="9">For JBoss AS5 special maven dependency needed for MSS 1.x JBoss AS5 version for the JBoss Weld dependency, that will be:
-<programlisting language="Xml" role="XML">
+<note><para>For JBoss AS5 special maven dependency needed for MSS 1.x JBoss AS5 version for the JBoss Weld dependency, that will be:
+<programlisting>
 	<![CDATA[
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
@@ -104,7 +104,7 @@
 		</dependency> </note>
 		]]>
 </programlisting>
-</note>
+</para></note>
 
 <para>CTF have been tested and verified working in the following MSS containers:</para>
 <itemizedlist>
@@ -120,7 +120,7 @@
 <listitem> <para>MSS 1.x on Tomcat 6.x
 	<itemizedlist>
 		<listitem> <para>CDI</para>
-			<programlisting language="Xml" role="XML" >
+			<programlisting >
 			<![CDATA[
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
@@ -130,7 +130,7 @@
 			]]></programlisting>
 		</listitem>
 		<listitem> <para>CTF</para>
-			<programlisting language="Xml" role="XML">
+			<programlisting>
 			<![CDATA[ 
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>
@@ -144,7 +144,7 @@
 <listitem> <para>MSS 1.x on JBoss AS5
 	<itemizedlist>
 		<listitem><para>CDI</para>
-			<programlisting language="Xml" role="XML">
+			<programlisting>
 			<![CDATA[
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
@@ -156,7 +156,7 @@
 			]]></programlisting>
 		</listitem>
 		<listitem><para>CTF</para>
-			<programlisting language="Xml" role="XML">
+			<programlisting>
 			<![CDATA[	
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>
@@ -170,7 +170,7 @@
 <listitem> <para>MSS 2.x on Tomcat 7.x
 	<itemizedlist>
 		<listitem><para>CDI</para>
-			<programlisting language="Xml" role="XML">
+			<programlisting>
 			<![CDATA[
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
@@ -180,7 +180,7 @@
 			]]></programlisting>
 		</listitem>
 		<listitem><para>CTF</para>
-			<programlisting language="Xml" role="XML">
+			<programlisting>
 			<![CDATA[	
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>

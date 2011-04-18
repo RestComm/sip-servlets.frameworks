@@ -62,9 +62,9 @@ public class MySipMessagesHandlerClass {
 ]]>
 </programlisting>
 <para>In the above code snippet you will notice the CDI component doesn't need to extend SipServlet anymore and just need to specify 2 annotations <literal>@Observes</literal> and <literal>@Register</literal> to tell the framework that it is interested in REGISTER SIP Messages. This provide you with type safety, auto completion feature in the IDE and let you handle SIP Messages in any component be it from your application or from a third party <literal>CTF-enabled</literal> library or module included in your application.</para>
-<note>
+<note> <para>
 Future release will have a priority or weight mechanism so that 2 components interested in SIP REGISTER requests by example won't be able to process them at the same time or sequentially (except if the first one didn't make the message committed) and we still allow components composition from differents 3rd party modules.
-</note>
+</para> </note>
 <para>CTF will propagate the following SIP request methods:</para>
    <table id="tab-CTF_SIP_Request_Observers" frame='all'>
       <title>CTF SIP Request Methods and Annotations</title>
@@ -127,7 +127,6 @@ Future release will have a priority or weight mechanism so that 2 components int
 <programlisting language="Java" role="JAVA">
        <![CDATA[
 public void handleUpdate (@Observes @Update SipServletRequest req){
-…
 }]]>
 </programlisting>
 <para>and the following SIP responses:</para>
@@ -165,10 +164,9 @@ public void handleUpdate (@Observes @Update SipServletRequest req){
 <programlisting language="Java" role="JAVA">
        <![CDATA[
 public void handleErrorResponse (@Observes @ErrorResponse SipServletResponse resp) {
-…
 }]]>
 </programlisting>
-<note>
+<note> <para>
 As with all CDI observers, the name of the method is insignificant. The developer can choose any convenient method name as long as it uses the correct CTF Observer to receive the appropriate CTF event.
-</note>
+</para> </note>
 </chapter>
