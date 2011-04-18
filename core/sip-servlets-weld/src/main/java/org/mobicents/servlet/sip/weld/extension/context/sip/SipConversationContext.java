@@ -6,6 +6,11 @@ import javax.servlet.sip.SipSession;
 import org.jboss.weld.context.BoundContext;
 import org.jboss.weld.context.ConversationContext;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public interface SipConversationContext extends BoundContext<SipServletRequest>, ConversationContext 
 {
 

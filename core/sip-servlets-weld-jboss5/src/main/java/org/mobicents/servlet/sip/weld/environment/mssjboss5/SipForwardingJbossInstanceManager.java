@@ -1,5 +1,10 @@
 package org.mobicents.servlet.sip.weld.environment.mssjboss5;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 import java.lang.reflect.InvocationTargetException;
 
 import javax.naming.NamingException;

@@ -53,6 +53,13 @@ import org.slf4j.LoggerFactory;
  * @author Pete Muir
  * @author Ales Justin
  */
+
+/*
+ * Main CTF listener, will bootstrap CDI for Converged applications
+ *  
+ * gvagenas@gmail.com / devrealm.org
+ */
+
 public class SipServletsWeldListener extends ForwardingServletListener 
 {
 	private static final Logger log = LoggerFactory.getLogger(SipServletsWeldListener.class);

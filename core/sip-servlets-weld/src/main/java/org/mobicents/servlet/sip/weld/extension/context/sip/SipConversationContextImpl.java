@@ -9,6 +9,11 @@ import org.jboss.weld.context.beanstore.NamingScheme;
 import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.EagerSipSessionBeanStore;
 import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.LazySipSessionBeanStore;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipConversationContextImpl extends AbstractConversationContext<SipServletRequest, SipSession> implements SipConversationContext
 {
 

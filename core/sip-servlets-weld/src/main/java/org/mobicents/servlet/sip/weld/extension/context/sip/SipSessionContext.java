@@ -7,7 +7,11 @@ import javax.servlet.sip.SipSession;
 import org.jboss.weld.context.BoundContext;
 import org.jboss.weld.context.SessionContext;
 
-//Based on org.jboss.weld.context.http.HttpSessionContext
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+* Based on org.jboss.weld.context.http.HttpSessionContext
+*/
 
 public interface SipSessionContext extends BoundContext<SipServletRequest>, SessionContext 
 {

@@ -10,6 +10,11 @@ import org.jboss.weld.context.beanstore.NamingScheme;
 import org.jboss.weld.context.beanstore.SimpleNamingScheme;
 import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.sipsession.LazySipSessionBeanStore;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipSessionContextImpl  extends AbstractBoundContext<SipServletRequest> implements SipSessionContext 
 {
 

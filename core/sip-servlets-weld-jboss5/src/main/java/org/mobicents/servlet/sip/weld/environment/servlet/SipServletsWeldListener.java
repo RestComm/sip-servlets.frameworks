@@ -51,6 +51,13 @@ import org.slf4j.LoggerFactory;
  * @author Pete Muir
  * @author Ales Justin
  */
+
+
+/*
+* Responsible to bootstrap CDI for a Converged Apllication 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipServletsWeldListener extends ForwardingServletListener 
 {
 	private static final Logger log = LoggerFactory.getLogger(SipServletsWeldListener.class);

@@ -5,6 +5,11 @@ import javax.enterprise.inject.spi.AfterBeanDiscovery;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.Extension;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipServletsContextsExtension implements Extension{
 
 	void afterBeanDiscovery(@Observes AfterBeanDiscovery abd, BeanManager bm) {

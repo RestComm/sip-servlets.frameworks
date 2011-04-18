@@ -48,6 +48,14 @@ import org.mobicents.servlet.sip.weld.extension.event.session.literal.SipSession
 import org.mobicents.servlet.sip.weld.extension.sessionlisteners.SipApplicationSessionContextInitialization;
 import org.mobicents.servlet.sip.weld.extension.sessionlisteners.SipSessionContextInitialization;
 
+/*
+ * SipServletEntryPoint will provide SipSession and SipApplicationSession
+ * and will raise an event for every Sip request or response
+ * 
+ * @author gvagenas 
+ * gvagenas@gmail.com / devrealm.org
+ */
+
 @ApplicationScoped
 @javax.servlet.sip.annotation.SipServlet(loadOnStartup=1)
 public class SipServletsEntryPoint extends SipServlet implements SipErrorListener{

@@ -9,6 +9,11 @@ import javax.servlet.sip.SipSession;
 import org.mobicents.servlet.sip.weld.extension.event.session.SipApplicationSessionEv;
 import org.mobicents.servlet.sip.weld.extension.event.session.SipSessionEv;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 @ApplicationScoped
 public class SipSessionsHolder {
 

@@ -5,6 +5,10 @@ import javax.servlet.sip.SipSessionListener;
 
 import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionContext;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
 
 //@SipListener
 public class SipSessionContextInitialization implements SipSessionListener{

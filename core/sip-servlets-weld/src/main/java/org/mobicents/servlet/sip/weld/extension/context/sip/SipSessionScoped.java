@@ -12,6 +12,11 @@ import java.lang.annotation.Target;
 
 import javax.enterprise.context.NormalScope;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 @Target( { TYPE, METHOD, FIELD })
 @Retention(RUNTIME)
 @Documented

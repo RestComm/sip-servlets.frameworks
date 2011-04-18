@@ -39,6 +39,11 @@ import org.mobicents.servlet.sip.weld.extension.event.response.literal.SuccessRe
 import org.mobicents.servlet.sip.weld.extension.event.session.literal.SipApplicationSessionLiteral;
 import org.mobicents.servlet.sip.weld.extension.event.session.literal.SipSessionLiteral;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 @ApplicationScoped
 @javax.servlet.sip.annotation.SipServlet(loadOnStartup=1)
 public class SipServletsEntryPoint extends SipServlet implements SipErrorListener{

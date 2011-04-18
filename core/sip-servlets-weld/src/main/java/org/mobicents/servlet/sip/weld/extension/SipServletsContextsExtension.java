@@ -14,6 +14,11 @@ import org.mobicents.servlet.sip.weld.extension.context.sip.SipLiteral;
 import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionContext;
 import org.mobicents.servlet.sip.weld.extension.context.sip.SipSessionContextImpl;
 
+/*
+ * @author gvagenas 
+ * gvagenas@gmail.com / devrealm.org
+ */
+
 public class SipServletsContextsExtension implements Extension{
 
 	void afterBeanDiscovery(@Observes AfterBeanDiscovery abd, BeanManager bm) {

@@ -12,6 +12,11 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)

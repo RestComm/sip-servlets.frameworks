@@ -6,6 +6,11 @@ import javax.servlet.sip.SipApplicationSessionListener;
 
 import org.mobicents.servlet.sip.weld.extension.context.sip.SipApplicationSessionContext;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 //@SipListener
 public class SipApplicationSessionContextInitialization implements SipApplicationSessionListener
 {

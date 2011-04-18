@@ -2,6 +2,11 @@ package org.mobicents.servlet.sip.weld.extension;
 
 import javax.servlet.ServletContext;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class ConvergedApplication {
 
     private final String name;

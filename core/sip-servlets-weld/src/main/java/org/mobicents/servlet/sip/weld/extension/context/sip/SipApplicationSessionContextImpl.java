@@ -15,6 +15,11 @@ import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.sipappsess
 import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.sipsession.EagerSipSessionBeanStore;
 import org.mobicents.servlet.sip.weld.extension.context.sip.beanstore.sipsession.LazySipSessionBeanStore;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipApplicationSessionContextImpl extends AbstractBoundContext<SipServletRequest> implements SipApplicationSessionContext 
 {
 

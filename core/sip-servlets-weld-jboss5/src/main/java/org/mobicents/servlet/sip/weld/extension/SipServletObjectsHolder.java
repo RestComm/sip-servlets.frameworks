@@ -11,6 +11,11 @@ import org.mobicents.servlet.sip.weld.extension.event.context.Initialized;
 
 //From Seam3->Servlet module : org.jboss.seam.servlet.event.ImplicitServletObjectsHolder
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 @ApplicationScoped
 public class SipServletObjectsHolder {
 

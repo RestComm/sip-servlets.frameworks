@@ -9,6 +9,11 @@ import javax.servlet.sip.SipServlet;
 import javax.servlet.sip.SipSessionsUtil;
 import javax.servlet.sip.TimerService;
 
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
+
 public class SipServletsObjectProducer {
 
 	@Inject

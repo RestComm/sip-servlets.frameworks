@@ -5,7 +5,10 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.servlet.sip.SipApplicationSession;
 import javax.servlet.sip.SipSession;
-
+/*
+* @author gvagenas 
+* gvagenas@gmail.com / devrealm.org
+*/
 
 @ApplicationScoped
 public class SipSessionsProducers {
