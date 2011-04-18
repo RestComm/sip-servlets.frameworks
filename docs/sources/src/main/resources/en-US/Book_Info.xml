@@ -3,7 +3,7 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CDI_Telco_Framework_User_Guide.ent">
 %BOOK_ENTITIES;
 ]><!-- chapter id nickname: sssug -->
-<bookinfo id="sssug-CDI_Telco_Framework_User_Guide">
+<bookinfo id="CDI_Telco_Framework_User_Guide">
 	<title>CDI Telco Framework User Guide</title>
 	<subtitle>The Guide to the CDI Telco Framework</subtitle>
   	<productname>Mobicents Platform</productname>
@@ -15,7 +15,7 @@
 		<para>The &PLATFORM_NAME; enables the composition of predefined Service Building Blocks (<acronym>SBB</acronym>s) such as Call-Control, Billing, User-Provisioning, Administration and Presence-Sensing.  Out-of-the-box monitoring and management of &PLATFORM_NAME; components is achieved through <acronym>JMX</acronym> Consoles. <acronym>JSLEE</acronym> allows popular protocol stacks such as <acronym>SIP</acronym> to be plugged in as Resource Adapters (<acronym>RA</acronym>s), and Service Building Blocks—which share many similarities with <acronym>EJB</acronym>s—allow the easy accommodation and integration of enterprise applications with end points such as the Web, Customer Relationship Management (<acronym>CRM</acronym>) systems and Service-Oriented Architectures (<acronym>SOA</acronym>s). The &PLATFORM_NAME; is the natural choice for telecommunication Operations Support Systems (OSSs) and Network Management Systems (NMSs).</para>
 		<para>In addition to the telecommunication industry, the &PLATFORM_NAME; is suitable for a variety of problem domains demanding an Event-Driven Architecture (<acronym>EDA</acronym>) for high-volume, low-latency signaling, such as financial trading, online gaming, (<acronym>RFID</acronym>) sensor network integration, and distributed control.</para>
 	</abstract>
-	<corpauthor>
+	<!-- corpauthor>
 		<inlinemediaobject>
 			<imageobject>
 				<imagedata
@@ -26,7 +26,7 @@
 				<phrase>Logo</phrase>
 			</textobject>
 		</inlinemediaobject>
-	</corpauthor>
+	</corpauthor-->
 	<copyright>
 		<year>&YEAR;</year>
 		<holder>&HOLDER;</holder>
@@ -34,7 +34,7 @@
 	<!--ORIGINAL:
 	<xi:include
 		href="Common_Content/Legal_Notice.xml"
-		xmlns:xi="http://www.w3.org/2001/XInclude" />-->
+		xmlns:xi="http://www.w3.org/2001/XInclude" /-->
 	<!--FOR JDOCBOOK:-->
 	<!--<xi:include
 		xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -45,7 +45,7 @@
 				href="fallback_content/Legal_Notice.xml"
 				xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
 		</xi:fallback>
-	</xi:include>-->
+	</xi:include-->
 	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 </bookinfo>
 
