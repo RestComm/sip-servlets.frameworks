@@ -26,7 +26,7 @@
 		<jboss5.version>5.1.0.GA</jboss5.version>
 
 		<mss1.version>1.5.0.FINAL</mss1.version>
-		<mss2.version>2.0.0.ALPHA1</mss2.version>
+		<mss2.version>2.0.0.ALPHA2</mss2.version>
 	</properties>
 
 	<dependencyManagement>
