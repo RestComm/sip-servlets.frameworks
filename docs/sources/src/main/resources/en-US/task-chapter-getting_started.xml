@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>]]>&CTF_VERSION;<![CDATA[</version>
 		</dependency>
 		]]>
 </programlisting>
@@ -100,7 +100,7 @@
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld-jboss5</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>]]>&CTF_VERSION;<![CDATA[</version>
 		</dependency> </note>
 		]]>
 </programlisting>
@@ -135,7 +135,7 @@
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>
 				<artifactId>sip-servlets-weld</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 		]]></programlisting>
 		</listitem>
@@ -161,7 +161,7 @@
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>
 				<artifactId>sip-servlets-weld-jboss5</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 			]]></programlisting>
 		</listitem>
@@ -185,7 +185,7 @@
 			<dependency>
 				<groupId>org.mobicents.servlet.sip.weld</groupId>
 				<artifactId>sip-servlets-weld</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 			]]></programlisting>
 		</listitem>
@@ -222,7 +222,7 @@
 			<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 		]]></programlisting></entry>
         </row>
@@ -243,7 +243,7 @@
 			<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld-jboss5</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 			]]></programlisting></entry>
         </row>
@@ -262,7 +262,7 @@
 			<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 			]]></programlisting></entry>						
         </row>
