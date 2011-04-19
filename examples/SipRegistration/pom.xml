@@ -3,7 +3,7 @@
 
 	<groupId>org.mobicents.servlet.sip.weld.examples</groupId>
 	<artifactId>SipRegistration</artifactId>
-	<version>1.0.0.ALPHA1</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SipRegistration</name>
@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.weld</groupId>
 			<artifactId>sip-servlets-weld</artifactId>
-			<version>1.0.0.ALPHA1</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
