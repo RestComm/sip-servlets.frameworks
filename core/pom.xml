@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -14,9 +15,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>sip-servlets-weld-extension</module>
 		<module>sip-servlets-weld</module>
 		<module>sip-servlets-weld-jboss5</module>
-	</modules>
+  </modules>
 
 	<properties>
 		<log4j.version>1.2.14</log4j.version>
@@ -26,6 +28,9 @@
 
 		<mss1.version>1.5.0.FINAL</mss1.version>
 		<mss2.version>2.0.0.ALPHA2</mss2.version>
+
+		<weld.version>1.1.0.Final</weld.version>
+		<cdiapi.version>1.0</cdiapi.version>
 	</properties>
 
 	<dependencyManagement>
@@ -55,7 +60,7 @@
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
 				<artifactId>weld-servlet</artifactId>
-				<version>1.1.0.Final</version>
+				<version>${weld.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
@@ -64,13 +69,13 @@
 				<artifactId>weld-servlet</artifactId>
 				<scope>runtime</scope>
 				<classifier>jboss5</classifier>
-				<version>1.1.0.Final</version>
+				<version>${weld.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>javax.enterprise</groupId>
 				<artifactId>cdi-api</artifactId>
-				<version>1.0</version>
+				<version>${cdiapi.version}</version>
 			</dependency>
 
 			<!-- Mobicents Dependencies -->

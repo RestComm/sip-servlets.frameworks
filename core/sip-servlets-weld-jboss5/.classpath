@@ -3,17 +3,18 @@
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="var" path="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar" sourcepath="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1-sources.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/annotations-api/6.0.29/annotations-api-6.0.29.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/catalina/6.0.29/catalina-6.0.29.jar"/>
-  <classpathentry kind="var" path="M2_REPO/jboss/web/jbossweb/2.1.3.GA/jbossweb-2.1.3.GA.jar" sourcepath="M2_REPO/jboss/web/jbossweb/2.1.3.GA/jbossweb-2.1.3.GA-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/jboss/web/jbossweb/2.1.3.GA/jbossweb-2.1.3.GA.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/juli/6.0.29/juli-6.0.29.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/servlet-api/6.0.29/servlet-api-6.0.29.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-annotations/1.6.0-SNAPSHOT/sip-servlets-annotations-1.6.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-client/1.6.0-SNAPSHOT/sip-servlets-client-1.6.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-impl/1.6.0-SNAPSHOT/sip-servlets-impl-1.6.0-SNAPSHOT.jar" sourcepath="M2_REPO/org/mobicents/servlet/sip/sip-servlets-impl/1.6.0-SNAPSHOT/sip-servlets-impl-1.6.0-SNAPSHOT-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jboss5/1.6.0-SNAPSHOT/sip-servlets-jboss5-1.6.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jruby/1.6.0-SNAPSHOT/sip-servlets-jruby-1.6.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-spec/2.0.0-SNAPSHOT/sip-servlets-spec-2.0.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-annotations/1.5.0.FINAL/sip-servlets-annotations-1.5.0.FINAL.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-client/1.5.0.FINAL/sip-servlets-client-1.5.0.FINAL.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-impl/1.5.0.FINAL/sip-servlets-impl-1.5.0.FINAL.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jboss5/1.5.0.FINAL/sip-servlets-jboss5-1.5.0.FINAL.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jruby/1.5.0.FINAL/sip-servlets-jruby-1.5.0.FINAL.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-spec/2.0.0.ALPHA2/sip-servlets-spec-2.0.0.ALPHA2.jar"/>
+  <classpathentry kind="src" path="/sip-servlets-weld-extension"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar" sourcepath="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final-sources.jar"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 </classpath>

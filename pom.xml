@@ -17,35 +17,13 @@
 	</ciManagement>
 	<developers>
 		<developer>
-			<id>jean.deruelle</id>
-			<name>Jean Deruelle</name>
-			<email>jean.deruelle@gmail.com</email>
-			<organization>JBoss/Red Hat</organization>
-			<organizationUrl>http://www.redhat.com/</organizationUrl>
-			<roles>
-				<role>Project Lead</role>
-			</roles>
-			<timezone>+1</timezone>
-		</developer>
-		<developer>
-			<id>vralev</id>
-			<name>Vladimir Ralev</name>
-			<email>vladimir.ralev@gmail.com</email>
-			<organization>JBoss/Red Hat</organization>
-			<organizationUrl>http://www.redhat.com/</organizationUrl>
-			<roles>
-				<role>Active Developer</role>
-			</roles>
-			<timezone>+1</timezone>
-		</developer>
-		<developer>
 			<id>gvag</id>
 			<name>Georges Vagenas</name>
 			<email>gvagenas@gmail.com</email>
 			<roles>
 				<role>Active Developer</role>
 			</roles>
-			<timezone>+1</timezone>
+			<timezone>EST</timezone>
 		</developer>		
 	</developers>
 	<licenses>

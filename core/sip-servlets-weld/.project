@@ -1,9 +1,8 @@
 <projectDescription>
   <name>sip-servlets-weld</name>
-  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <comment>Mobicents :: Parent pom for 2.x releases. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>sip-servlets-impl</project>
-    <project>tomcat-7</project>
+    <project>sip-servlets-weld-extension</project>
   </projects>
   <buildSpec>
     <buildCommand>

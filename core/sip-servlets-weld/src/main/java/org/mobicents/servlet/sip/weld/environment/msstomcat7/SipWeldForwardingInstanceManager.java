@@ -24,10 +24,6 @@ import org.jboss.weld.environment.tomcat7.WeldForwardingInstanceManager;
 import org.jboss.weld.manager.api.WeldManager;
 import org.mobicents.servlet.sip.annotations.SipInstanceManager;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
-import org.mobicents.servlet.sip.startup.SipContext;
-import org.mobicents.servlet.sip.startup.SipStandardContext;
-import org.mobicents.servlet.sip.startup.loading.SipServletImpl;
-import org.mobicents.servlet.sip.weld.extension.ConvergedApplication;
 
 
 public class SipWeldForwardingInstanceManager extends SipForwardingInstanceManager { 
