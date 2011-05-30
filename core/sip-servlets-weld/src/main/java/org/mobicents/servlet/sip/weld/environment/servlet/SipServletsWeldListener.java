@@ -29,6 +29,7 @@ import javax.servlet.jsp.JspFactory;
 import org.jboss.weld.bootstrap.api.Bootstrap;
 import org.jboss.weld.bootstrap.api.Environments;
 import org.jboss.weld.environment.jetty.JettyWeldInjector;
+import org.jboss.weld.environment.servlet.Listener;
 import org.jboss.weld.environment.servlet.deployment.ServletDeployment;
 import org.jboss.weld.environment.servlet.deployment.URLScanner;
 import org.jboss.weld.environment.servlet.deployment.VFSURLScanner;
@@ -69,7 +70,9 @@ public class SipServletsWeldListener extends ForwardingServletListener
 	private static final String EXPRESSION_FACTORY_NAME = "org.jboss.weld.el.ExpressionFactory";
 	private static final String JETTY_REQUIRED_CLASS_NAME = "org.mortbay.jetty.servlet.ServletHandler";
 	public  static final String INJECTOR_ATTRIBUTE_NAME = "org.jboss.weld.environment.jetty.JettyWeldInjector";
-	public static final String BEAN_MANAGER_ATTRIBUTE_NAME = SipServletsWeldListener.class.getPackage().getName() + "." + BeanManager.class.getName();
+	// CTF Issue http://code.google.com/p/mobicents/issues/detail?id=2601
+	// CTF beans cannot be resolved in JSF because the BeanManager name was wrong
+ 	public static final String BEAN_MANAGER_ATTRIBUTE_NAME = Listener.class.getPackage().getName() + "." + BeanManager.class.getName();
 
 	private final transient Bootstrap bootstrap;
 	private final transient ServletListener weldListener;
