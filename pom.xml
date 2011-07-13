@@ -5,12 +5,15 @@
 		<artifactId>mobicents-parent</artifactId>
 		<version>2.17</version>
 	</parent>
-	<groupId>org.mobicents.servlet.sip.weld</groupId>
-	<artifactId>sip-servlets-weld-parent</artifactId>
+
+	<groupId>org.mobicents.servlet.sip.ctf</groupId>
+	<artifactId>ctf-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>	
 	<name>Mobicents Sip Servlets CDI Telco Framework Parent</name>
 	<url>http://www.mobicents.org/products_sip_servlets.html</url>
+
+
 	<developers>
 		<developer>
 			<id>gvag</id>
@@ -22,6 +25,7 @@
 			<timezone>EST</timezone>
 		</developer>		
 	</developers>
+
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE</name>
@@ -29,13 +33,16 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+
 	<scm>
 		<connection>scm:svn:https://mobicents.googlecode.com/svn/trunk/frameworks/sip-servlets/cdi-telco-framework</connection>
 		<developerConnection>scm:svn:https://mobicents.googlecode.com/svn/trunk/frameworks/sip-servlets/cdi-telco-framework</developerConnection>
 		<url>http://code.google.com/p/mobicents/source/browse/trunk/frameworks/sip-servlets/cdi-telco-framework</url>
 	</scm>
+
 	<modules>
 		<module>core</module>
+		<module>modules</module>
 	</modules>
 	
 	<properties>
