@@ -1,0 +1,10 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/framework/mtf-sip-servlets/1.0.0-SNAPSHOT/mtf-sip-servlets-1.0.0-SNAPSHOT.jar" sourcepath="M2_REPO/org/mobicents/framework/mtf-sip-servlets/1.0.0-SNAPSHOT/mtf-sip-servlets-1.0.0-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-spec/2.0.0.ALPHA2/sip-servlets-spec-2.0.0.ALPHA2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar"/>
+</classpath>

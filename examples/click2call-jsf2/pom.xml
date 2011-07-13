@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>sip-servlets-weld-examples-parent</artifactId>
+		<groupId>org.mobicents.servlet.sip.weld.examples</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.mobicents.framework.servlet.sip.ctf.examples</groupId>
+	<artifactId>click2call-jsf2</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>click2call-jsf2</name>
+	<packaging>war</packaging>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mobicents.servlet.sip.weld</groupId>
+			<artifactId>sip-servlets-weld</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<!-- <dependency> <groupId>org.mobicents.framework</groupId> <artifactId>mtf-sip-servlets</artifactId> 
+			<version>1.0.0-SNAPSHOT</version> <scope>provided</scope> </dependency> -->
+		<!-- j2ee dependencies -->
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mobicents.servlet.sip</groupId>
+			<artifactId>sip-servlets-spec</artifactId>
+			<version>2.0.0.ALPHA2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSF2 dependencies for Tomcat 7 -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>javax.annotation</groupId> <artifactId>jsr250-api</artifactId> 
+			<version>1.0</version> </dependency> <dependency> <groupId>javax.faces</groupId> 
+			<artifactId>jsf-api</artifactId> </dependency> <dependency> <groupId>javax.faces</groupId> 
+			<artifactId>jsf-impl</artifactId> <scope>runtime</scope> </dependency> <dependency> 
+			<groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> <scope>runtime</scope> 
+			</dependency> -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warSourceDirectory>
+						${basedir}/src/main/webapp
+					</warSourceDirectory>
+					<warName>Click2Call-JSF2</warName>
+				</configuration>
+			</plugin>
+<!--
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<useProjectReferences>false</useProjectReferences>
+				</configuration>
+			</plugin>
+-->
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+
+</project>

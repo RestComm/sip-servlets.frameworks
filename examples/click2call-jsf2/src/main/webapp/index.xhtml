@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/mobicents.xhtml">
+
+	<ui:define name="content">
+		<h1>Click2Call JSF2</h1>
+
+		<p>
+			You have <span style="color: blue;">#{sipController.users}</span>
+			users registered.
+		</p>
+
+		<p>
+			<div id="callDiv">
+				<h:panelGrid columns="2" id="callPanel">
+					<h:form>
+						<h:outputLabel for="selectFrom" value="From"
+							rendered="#{not empty sipController.sipEndpoints}" />
+						<h:selectOneMenu id="selectFrom" value="#{sipController.fromURI}"
+							rendered="#{not empty sipController.sipEndpoints}">
+							<f:selectItems value="#{sipController.sipEndpoints}" />
+						</h:selectOneMenu>
+
+						<h:outputLabel for="selectTo" value="To"
+							rendered="#{not empty sipController.sipEndpoints}" />
+						<h:selectOneMenu id="selectTo" value="#{sipController.toURI}"
+							rendered="#{not empty sipController.sipEndpoints}">
+							<f:selectItems value="#{sipController.sipEndpoints}" />
+						</h:selectOneMenu>
+
+						<p />
+
+						<h:panelGrid columns="2">
+							<h:commandLink id="callLink" action="#{sipController.call}"
+								rendered="#{not empty sipController.sipEndpoints}">
+								<h:outputText value="Call" />
+							</h:commandLink>
+
+							<h:commandLink id="hangupLink" action="#{sipController.hangup}"
+								rendered="#{not empty sipController.sipEndpoints}">
+								<h:outputText value="Hangup" />
+							</h:commandLink>
+						</h:panelGrid>
+					</h:form>
+				</h:panelGrid>
+			</div>
+		</p>
+	</ui:define>
+</ui:composition>

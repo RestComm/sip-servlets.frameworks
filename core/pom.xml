@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.mobicents.servlet.sip.weld</groupId>
-		<artifactId>sip-servlets-weld-parent</artifactId>
+		<groupId>org.mobicents.servlet.sip.ctf</groupId>
+		<artifactId>ctf-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.mobicents.servlet.sip.weld</groupId>
-	<artifactId>sip-servlets-weld-core</artifactId>
+	<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
+	<artifactId>ctf-core-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Mobicents Sip Servlets CDI Telco Framework Core Parent</name>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>sip-servlets-weld-extension</module>
-		<module>sip-servlets-weld</module>
-		<module>sip-servlets-weld-jboss5</module>
-  </modules>
+		<module>ctf-core-extension</module>
+		<module>ctf-core</module>
+		<module>ctf-core-jboss5</module>
+	</modules>
 
 	<properties>
 		<log4j.version>1.2.14</log4j.version>
@@ -150,5 +151,19 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+	<build>
+		<plugins>
+<!--
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<useProjectReferences>false</useProjectReferences>
+				</configuration>
+			</plugin>
+-->
+		</plugins>
+	</build>
 
 </project>

@@ -41,6 +41,7 @@ import org.mobicents.servlet.sip.weld.extension.event.request.Register;
 import org.mobicents.servlet.sip.weld.extension.event.response.ErrorResponse;
 import org.mobicents.servlet.sip.weld.extension.event.response.SuccessResponse;
 
+
 public class SimpleSipServlet { 
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SimpleSipServlet.class);
