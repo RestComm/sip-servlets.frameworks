@@ -2,9 +2,10 @@
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="src" path="/ctf-core"/>
+  <classpathentry kind="src" path="/ctf-core-extension"/>
   <classpathentry kind="var" path="M2_REPO/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar" sourcepath="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-spec/1.5.0.FINAL/sip-servlets-spec-1.5.0.FINAL.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/weld/sip-servlets-weld/1.0.0-SNAPSHOT/sip-servlets-weld-1.0.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar" sourcepath="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar"/>
 </classpath>

@@ -1,4 +1,4 @@
-package org.mobicents.servlet.sip.weld.examples;
+package org.mobicents.servlet.sip.ctf.examples;
 
 import java.io.IOException;
 

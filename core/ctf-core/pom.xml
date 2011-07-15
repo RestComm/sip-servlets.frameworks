@@ -48,8 +48,8 @@
 
 		<!-- CTF Extension artifact -->
 		<dependency>
-			<groupId>org.mobicents.servlet.sip.weld</groupId>
-			<artifactId>sip-servlets-weld-extension</artifactId>
+			<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
+			<artifactId>ctf-core-extension</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>

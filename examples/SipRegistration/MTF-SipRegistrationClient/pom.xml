@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.mobicents.servlet.sip.weld.examples</groupId>
+		<groupId>org.mobicents.servlet.sip.ctf.examples</groupId>
 		<artifactId>SipRegistration</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
@@ -22,8 +22,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>org.mobicents.servlet.sip.weld</groupId>
-			<artifactId>sip-servlets-weld</artifactId>
+			<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
+			<artifactId>ctf-core</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 

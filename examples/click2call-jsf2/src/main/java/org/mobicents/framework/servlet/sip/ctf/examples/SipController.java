@@ -1,4 +1,4 @@
-package org.mobicents.framework.servlet.sip.ctf.examples;
+package org.mobicents.servlet.sip.ctf.examples;
 
 import java.io.IOException;
 import java.io.Serializable;

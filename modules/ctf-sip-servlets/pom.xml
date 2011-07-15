@@ -27,10 +27,6 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId></groupId>
-		</dependency>
-		
 	</dependencies>
 
 </project>
