@@ -23,5 +23,5 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-juli/7.0.8/tomcat-juli-7.0.8.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-servlet-api/7.0.8/tomcat-servlet-api-7.0.8.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-util/7.0.8/tomcat-util-7.0.8.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final.jar" sourcepath="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.0.Final/weld-servlet-1.1.0.Final-sources.jar"/>
 </classpath>
