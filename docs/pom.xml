@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>org.mobicents.servlet.sip.weld</groupId>
-		<artifactId>sip-servlets-weld-parent</artifactId>
+		<groupId>org.mobicents.servlet.sip.ctf</groupId>
+		<artifactId>ctf-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
