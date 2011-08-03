@@ -1,5 +1,5 @@
 <%@ page import="java.util.HashMap"%>
-<%@ page import="org.mobicents.servlet.sip.weld.examples.*"%>
+<%@ page import="org.mobicents.servlet.sip.ctf.examples.*"%>
 <html>
 <title>Click To Call Demo CDI</title>
 <head>
