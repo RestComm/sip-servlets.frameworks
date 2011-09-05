@@ -1,5 +1,6 @@
 package org.mobicents.servlet.sip.ctf.core.extension;
 
+import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

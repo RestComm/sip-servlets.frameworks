@@ -12,7 +12,7 @@
        <dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
-			<version>1.1.0.Final</version>
+			<version>1.1.2.Final</version>
 		</dependency>
 		]]>
 </programlisting>
@@ -20,8 +20,8 @@
 <programlisting language="Xml" role="XML">
 	<![CDATA[
 		<dependency>
-			<groupId>org.mobicents.servlet.sip.weld</groupId>
-			<artifactId>sip-servlets-weld</artifactId>
+			<groupId>org.mobicents.servlet.sip.ctf</groupId>
+			<artifactId>ctf-core</artifactId>
 			<version>]]>&CTF_VERSION;<![CDATA[</version>
 		</dependency>
 		]]>
@@ -52,7 +52,7 @@
 	<![CDATA[
 	<listener>
 		<listener-class>
-				org.mobicents.servlet.sip.weld.environment.servlet.SipServletsWeldListener
+				org.mobicents.servlet.sip.ctf.environment.servlet.SipServletsListener
 		</listener-class>
 	</listener>
 		]]>
@@ -64,11 +64,11 @@
           <para>checkout project from svn repository: svn co https://mobicents.googlecode.com/svn/trunk/frameworks/sip-servlets/cdi-telco-framework</para>
         </listitem>
 	<listitem>
-          <para>In the folder core/sip-servlets-weld/ you will find the project responsible to bootstrap the framework, in order to build it: mvn clean compile install</para>
-        </listitem>            
-	<listitem>
-          <para>In the folder core/sip-servlets-weld-jboss5/ you will find the the project responsible to bootstrap the framework for the JBoss AS5, in order to build it: mvn clean compile install</para>
+          <para>In the folder core/ctf-core/ you will find the project responsible to bootstrap the framework, in order to build it: mvn clean compile install</para>
         </listitem>
+        <listitem>
+          <para>In the folder core/ctf-core-extension/ you will find the Sip Servlets extensions to CDI, such as CTF annotations, in order to build it: mvn clean compile install</para>
+        </listitem>            
     <listitem>
       <para>In the folder examples/ you will find the examples of the framework, build according to the notes of every example. The examples contain the following:
 		<itemizedlist>
@@ -95,12 +95,13 @@
 			<artifactId>weld-servlet</artifactId>
 			<scope>runtime</scope>
 			<classifier>jboss5</classifier>
-			<version>1.1.0.Final</version>
+			<version>1.1.2.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mobicents.servlet.sip.weld</groupId>
-			<artifactId>sip-servlets-weld-jboss5</artifactId>
+			<groupId>org.mobicents.servlet.sip.ctf</groupId>
+			<artifactId>ctf-core</artifactId>
 			<version>]]>&CTF_VERSION;<![CDATA[</version>
+			<classifier>jboss5</classifier>
 		</dependency> </note>
 		]]>
 </programlisting>
@@ -108,11 +109,9 @@
 
 <para>CTF have been tested and verified working in the following MSS containers:</para>
 <itemizedlist>
-	<listitem> <para>MSS 1.5 JBoss AS5</para> </listitem>
-	<listitem> <para>MSS 1.5 Tomcat 6.0.29</para> </listitem>
-	<listitem> <para>MSS 1.6-Trunk JBoss AS5</para> </listitem>
-	<listitem> <para>MSS 1.6-Trunk Tomcat 6.0.29</para> </listitem>
-	<listitem> <para>MSS 2.0-Trunk Tomcat 7.0.8</para> </listitem>
+	<listitem> <para>MSS 1.6 JBoss AS5</para> </listitem>
+	<listitem> <para>MSS 1.6 Tomcat 6.0.29</para> </listitem>
+	<listitem> <para>MSS 2.0-Branch Tomcat 7.0.8</para> </listitem>
 </itemizedlist>
 
 <itemizedlist>
@@ -125,7 +124,7 @@
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
 				<artifactId>weld-servlet</artifactId>
-				<version>1.1.0.Final</version>
+				<version>1.1.2.Final</version>
 			</dependency> 
 			]]></programlisting>
 		</listitem>
@@ -133,8 +132,8 @@
 			<programlisting>
 			<![CDATA[ 
 			<dependency>
-				<groupId>org.mobicents.servlet.sip.weld</groupId>
-				<artifactId>sip-servlets-weld</artifactId>
+				<groupId>org.mobicents.servlet.sip.ctf</groupId>
+				<artifactId>ctf-core</artifactId>
 				<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 		]]></programlisting>
@@ -151,7 +150,7 @@
 				<artifactId>weld-servlet</artifactId>
 				<scope>runtime</scope>
 				<classifier>jboss5</classifier>
-				<version>1.1.0.Final</version>
+				<version>1.1.2.Final</version>
 			</dependency>	
 			]]></programlisting>
 		</listitem>
@@ -159,9 +158,10 @@
 			<programlisting>
 			<![CDATA[	
 			<dependency>
-				<groupId>org.mobicents.servlet.sip.weld</groupId>
-				<artifactId>sip-servlets-weld-jboss5</artifactId>
+				<groupId>org.mobicents.servlet.sip.ctf</groupId>
+				<artifactId>ctf-core</artifactId>
 				<version>]]>&CTF_VERSION;<![CDATA[</version>
+				<classifier>jboss5</classifier>
 			</dependency>
 			]]></programlisting>
 		</listitem>
@@ -175,7 +175,7 @@
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
 				<artifactId>weld-servlet</artifactId>
-				<version>1.1.0.Final</version>
+				<version>1.1.2.Final</version>
 			</dependency>	
 			]]></programlisting>
 		</listitem>
@@ -183,8 +183,8 @@
 			<programlisting>
 			<![CDATA[	
 			<dependency>
-				<groupId>org.mobicents.servlet.sip.weld</groupId>
-				<artifactId>sip-servlets-weld</artifactId>
+				<groupId>org.mobicents.servlet.sip.ctf</groupId>
+				<artifactId>ctf-core</artifactId>
 				<version>]]>&CTF_VERSION;<![CDATA[</version>
 			</dependency>
 			]]></programlisting>

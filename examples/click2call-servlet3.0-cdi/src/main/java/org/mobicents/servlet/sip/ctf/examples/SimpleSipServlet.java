@@ -18,6 +18,7 @@ package org.mobicents.servlet.sip.ctf.examples;
 
 import java.io.IOException;
 
+import javax.annotation.Resource;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -52,7 +53,7 @@ public class SimpleSipServlet {
 	 */
 	
 	//SipFactory injection
-	@Inject
+	@Resource
 	private SipFactory sipFactory;
 	
 	//sipRegistar will process the Registration request 

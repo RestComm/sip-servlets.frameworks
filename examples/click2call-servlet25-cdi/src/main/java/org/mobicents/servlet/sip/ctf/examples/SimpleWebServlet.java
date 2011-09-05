@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,18 @@ public class SimpleWebServlet extends HttpServlet
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SimpleWebServlet.class);
 	
-	@Inject
+	@Inject @ApplicationScoped
 	private SipFactory sipFactory;	
+	
+	@Inject
+	private CallStatusContainer myContainer;
+	
+	/**
+	 * 
+	 */
+	public SimpleWebServlet() {
+		super();
+	}
 	
     /**
      * Handle the HTTP GET method by building a simple web page.

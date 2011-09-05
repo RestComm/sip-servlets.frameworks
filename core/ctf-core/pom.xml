@@ -46,6 +46,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mobicents.servlet.sip</groupId>
+			<artifactId>sip-servlets-tomcat-jboss4</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- CTF Extension artifact -->
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
@@ -73,6 +79,20 @@
 			<artifactId>catalina</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- JBoss5 Dependencies -->
+		<dependency>
+			<groupId>org.mobicents.servlet.sip</groupId>
+			<artifactId>sip-servlets-jboss5</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jboss.web</groupId>
+			<artifactId>jbossweb</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -88,22 +108,45 @@
 				</configuration>
 			</plugin>
 
+			<!-- Workaround in order to deploy ok on JBoss5 -->
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
 				<executions>
+
+					<!-- Execution for JBoss AS5 deployments -->
 					<execution>
-						<id>jar-with-dependencies</id>
+						<id>jboss5</id>
 						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-							<finalName>${project.name}-${project.version}</finalName>
-							<appendAssemblyId>false</appendAssemblyId>
+							<createSourcesJar>true</createSourcesJar>
+							<shadedArtifactAttached>true</shadedArtifactAttached>
+							<shadedClassifierName>jboss5</shadedClassifierName>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>org/mobicents/servlet/sip/ctf/core/environment/msstomcat7/**</exclude>
+										<exclude>org/mobicents/servlet/sip/ctf/core/environment/msstomcat6/**</exclude>
+									</excludes>
+								</filter>
+							</filters>
+
+						</configuration>
+					</execution>
+
+					<!-- Default exectution for MSS on Tomcat 6/7 -->
+					<execution>
+						<id>default</id>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<createSourcesJar>true</createSourcesJar>
 						</configuration>
 					</execution>
 				</executions>

@@ -1,7 +1,7 @@
 <web-app>
 
 	<listener>
-		<listener-class>org.mobicents.servlet.sip.weld.environment.servlet.SipServletsWeldListener</listener-class>
+		<listener-class>org.mobicents.servlet.sip.ctf.core.environment.servlet.SipServletsListener</listener-class>
 	</listener>
 
 </web-app>

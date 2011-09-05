@@ -9,7 +9,7 @@
 		<servlet-name>ClickToCall</servlet-name>
 		<servlet-class>org.mobicents.servlet.sip.ctf.examples.SimpleWebServlet
 		</servlet-class>
- 		<load-on-startup>1</load-on-startup>
+ 		<!--<load-on-startup>1</load-on-startup>-->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ClickToCall</servlet-name>
@@ -17,7 +17,7 @@
 	</servlet-mapping>
 
 	<listener>
-		<listener-class>org.mobicents.servlet.sip.ctf.core.environment.servlet.SipServletsWeldListener
+		<listener-class>org.mobicents.servlet.sip.ctf.core.environment.servlet.SipServletsListener
 		</listener-class>
 	</listener>
 

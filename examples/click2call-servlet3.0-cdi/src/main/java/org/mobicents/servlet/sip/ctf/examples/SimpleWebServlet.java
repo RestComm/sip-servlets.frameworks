@@ -37,7 +37,7 @@ import javax.servlet.sip.URI;
 import org.apache.log4j.Logger;
 import org.mobicents.servlet.sip.ctf.examples.modules.CallStatusContainer;
 
-@WebServlet(urlPatterns={"/call"}, asyncSupported=true, loadOnStartup=1, name="Click2CallAsync-CDI")
+@WebServlet(urlPatterns={"/call"}, asyncSupported=true, loadOnStartup=0, name="Click2CallAsync-CDI")
 public class SimpleWebServlet extends HttpServlet
 { 	
 	private static final long serialVersionUID = 1L;

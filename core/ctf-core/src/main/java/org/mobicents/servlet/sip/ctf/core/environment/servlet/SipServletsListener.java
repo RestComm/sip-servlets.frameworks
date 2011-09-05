@@ -16,6 +16,9 @@
  */
 package org.mobicents.servlet.sip.ctf.core.environment.servlet;
 
+import java.util.Arrays;
+import java.util.ServiceLoader;
+
 import javassist.util.proxy.ProxyFactory;
 import javassist.util.proxy.ProxyFactory.ClassLoaderProvider;
 
@@ -28,22 +31,23 @@ import javax.servlet.jsp.JspFactory;
 
 import org.jboss.weld.bootstrap.api.Bootstrap;
 import org.jboss.weld.bootstrap.api.Environments;
-import org.jboss.weld.environment.jetty.JettyWeldInjector;
+import org.jboss.weld.environment.Container;
+import org.jboss.weld.environment.ContainerContext;
 import org.jboss.weld.environment.servlet.Listener;
 import org.jboss.weld.environment.servlet.deployment.ServletDeployment;
 import org.jboss.weld.environment.servlet.deployment.URLScanner;
 import org.jboss.weld.environment.servlet.deployment.VFSURLScanner;
-import org.jboss.weld.environment.servlet.services.ServletResourceInjectionServices;
 import org.jboss.weld.environment.servlet.util.Reflections;
-import org.jboss.weld.environment.tomcat.WeldForwardingAnnotationProcessor;
-import org.jboss.weld.environment.tomcat7.WeldForwardingInstanceManager;
+import org.jboss.weld.environment.tomcat.Tomcat6Container;
+import org.jboss.weld.environment.tomcat7.Tomcat7Container;
 import org.jboss.weld.injection.spi.ResourceInjectionServices;
 import org.jboss.weld.manager.api.WeldManager;
 import org.jboss.weld.servlet.api.ServletListener;
 import org.jboss.weld.servlet.api.helpers.ForwardingServletListener;
-import org.mobicents.servlet.sip.ctf.core.environment.msstomcat6.SipWeldForwardingAnnotationProcessor;
-import org.mobicents.servlet.sip.ctf.core.environment.msstomcat7.SipWeldForwardingInstanceManager;
-import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
+import org.mobicents.servlet.sip.ctf.core.environment.mssjboss5.MSSJBoss5Container;
+import org.mobicents.servlet.sip.ctf.core.environment.msstomcat6.MSSTomcat6Container;
+import org.mobicents.servlet.sip.ctf.core.environment.msstomcat7.MSSTomcat7Container;
+import org.mobicents.servlet.sip.ctf.core.environment.services.SipServletResourceInjectionServices;
 import org.mobicents.servlet.sip.ctf.core.extension.SipServletObjectsHolder.InternalServletContextEvent;
 import org.mobicents.servlet.sip.ctf.core.extension.event.context.literal.DestroyedLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.context.literal.InitializedLiteral;
@@ -53,6 +57,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Pete Muir
  * @author Ales Justin
+ * @author George Vagenas
  */
 
 /*
@@ -61,9 +66,9 @@ import org.slf4j.LoggerFactory;
  * gvagenas@gmail.com / devrealm.org
  */
 
-public class SipServletsWeldListener extends ForwardingServletListener 
+public class SipServletsListener extends ForwardingServletListener 
 {
-	private static final Logger log = LoggerFactory.getLogger(SipServletsWeldListener.class);
+	private static final Logger log = LoggerFactory.getLogger(SipServletsListener.class);
 
 	private static final String BOOTSTRAP_IMPL_CLASS_NAME = "org.jboss.weld.bootstrap.WeldBootstrap";
 	private static final String WELD_LISTENER_CLASS_NAME = "org.jboss.weld.servlet.WeldListener"; 
@@ -72,13 +77,14 @@ public class SipServletsWeldListener extends ForwardingServletListener
 	public  static final String INJECTOR_ATTRIBUTE_NAME = "org.jboss.weld.environment.jetty.JettyWeldInjector";
 	// CTF Issue http://code.google.com/p/mobicents/issues/detail?id=2601
 	// CTF beans cannot be resolved in JSF because the BeanManager name was wrong
- 	public static final String BEAN_MANAGER_ATTRIBUTE_NAME = Listener.class.getPackage().getName() + "." + BeanManager.class.getName();
+	public static final String BEAN_MANAGER_ATTRIBUTE_NAME = Listener.class.getPackage().getName() + "." + BeanManager.class.getName();
 
 	private final transient Bootstrap bootstrap;
 	private final transient ServletListener weldListener;
 	private transient WeldManager manager; 
+	private Container container;
 
-	public SipServletsWeldListener()
+	public SipServletsListener()
 	{
 		try
 		{
@@ -104,24 +110,12 @@ public class SipServletsWeldListener extends ForwardingServletListener
 	public void contextDestroyed(ServletContextEvent sce)
 	{
 		manager.fireEvent(new InternalServletContextEvent(sce.getServletContext()), DestroyedLiteral.INSTANCE);
-		
+
 		bootstrap.shutdown();
-		try
-		{
-			Reflections.classForName("org.apache.AnnotationProcessor");
-			if (sce.getServletContext() instanceof ConvergedApplicationContextFacade){
-				SipWeldForwardingAnnotationProcessor.restoreAnnotationProcessor(sce);
-			} else {
-				WeldForwardingAnnotationProcessor.restoreAnnotationProcessor(sce);
-			}
-		}
-		catch (IllegalArgumentException ignore) {}
-		try
-		{
-			Reflections.classForName(JETTY_REQUIRED_CLASS_NAME);
-			sce.getServletContext().removeAttribute(INJECTOR_ATTRIBUTE_NAME);
-		}
-		catch (IllegalArgumentException ignore) {}
+
+		if (container != null)
+			container.destroy(new ContainerContext(sce, null));
+
 		super.contextDestroyed(sce);		
 	}
 
@@ -187,8 +181,10 @@ public class SipServletsWeldListener extends ForwardingServletListener
 		ServletDeployment deployment = createServletDeployment(context, bootstrap);
 		try
 		{
+			//Issue 2822 -  http://code.google.com/p/mobicents/issues/detail?id=2822
+			//Provide our custom ResourceInjectionService
 			deployment.getWebAppBeanDeploymentArchive().getServices().add(
-					ResourceInjectionServices.class, new ServletResourceInjectionServices() {});
+					ResourceInjectionServices.class, new SipServletResourceInjectionServices(context) {});
 		}
 		catch (NoClassDefFoundError e)
 		{
@@ -199,140 +195,19 @@ public class SipServletsWeldListener extends ForwardingServletListener
 		bootstrap.startContainer(Environments.SERVLET, deployment).startInitialization();
 		manager = bootstrap.getManager(deployment.getWebAppBeanDeploymentArchive());
 
-		boolean tomcat = false;
-		boolean mss1tomcat = false;
-		boolean mss1jboss5 = false;
-		boolean tomcat7 = false;
-		boolean mss2tomcat = false;
-
-		try
+		ContainerContext cc = new ContainerContext(sce, manager);
+		StringBuilder dump = new StringBuilder();
+		Container container = findContainer(cc, dump);
+		if (container == null)
 		{
-			Reflections.classForName("org.apache.InstanceManager");
-			//Check if we are on MSS 1.x on JBoss AS5
-			if (sce.getServletContext() instanceof ConvergedApplicationContextFacade){
-				mss1jboss5 = true;
-			} 
-		}
-		catch (IllegalArgumentException e)
-		{
-			mss1jboss5 = false;
-		}
-		if (!mss1jboss5){
-			try
-			{
-				Reflections.classForName("org.apache.AnnotationProcessor");
-				//Check if we are on MSS 1.x
-				if (sce.getServletContext() instanceof ConvergedApplicationContextFacade){
-					mss1tomcat = true;
-					tomcat = false;
-				} else {
-					tomcat = true; 
-				}
-			}
-			catch (IllegalArgumentException e)
-			{
-				tomcat = false;
-				mss1tomcat = false;
-			}
-		}
-
-		if(mss1jboss5){
-			log.error("Current project doesn't support JBoss AS5. Use sip-servlets-weld-jboss5");
-		}
-
-		if(mss1tomcat){
-			try
-			{
-				SipWeldForwardingAnnotationProcessor.replaceAnnotationProcessor(sce, manager);
-				log.info("MSS 1.x detected on Tomcat 6.x, CDI injection will be available in Servlets and Filters. Injection into Listeners is not supported");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to replace MSS 1.x on Tomcat 6.x AnnotationProcessor. CDI injection will not be available in Servlets, Filters, or Listeners", e);
-			}
-		}
-
-		if (tomcat)
-		{
-			try
-			{
-				WeldForwardingAnnotationProcessor.replaceAnnotationProcessor(sce, manager);
-				log.info("Tomcat 6 detected, CDI injection will be available in Servlets and Filters. Injection into Listeners is not supported");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to replace Tomcat AnnotationProcessor. CDI injection will not be available in Servlets, Filters, or Listeners", e);
-			}
-		}
-		try
-		{
-			Reflections.classForName("org.apache.tomcat.InstanceManager");
-			//Check if we are on MSS 2.x
-			if (sce.getServletContext() instanceof ConvergedApplicationContextFacade){
-				mss2tomcat = true;
-			} else {
-				tomcat7 = true; 
-			}
-		}
-		catch (IllegalArgumentException e)
-		{
-			tomcat7 = false;
-			mss2tomcat = false;
-		}
-
-		boolean jetty = true;
-		try
-		{
-			Reflections.classForName(JETTY_REQUIRED_CLASS_NAME);
-		}
-		catch (IllegalArgumentException e)
-		{
-			jetty = false;
-		}
-
-		if (jetty)
-		{
-			// Try pushing a Jetty Injector into the servlet context
-			try
-			{
-				Class<?> clazz = Reflections.classForName(JettyWeldInjector.class.getName());
-				Object injector = clazz.getConstructor(WeldManager.class).newInstance(manager);
-				context.setAttribute(INJECTOR_ATTRIBUTE_NAME, injector);
-				log.info("Jetty detected, JSR-299 injection will be available in Servlets and Filters. Injection into Listeners is not supported.");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to create JettyWeldInjector. CDI injection will not be available in Servlets, Filters or Listeners", e);
-			}
-		}
-		if (tomcat7)
-		{
-			try
-			{
-				WeldForwardingInstanceManager.replacInstanceManager(sce, manager);
-				log.info("Tomcat 7 detected, CDI injection will be available in Servlets and Filters. Injection into Listeners is not supported");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to replace Tomcat 7 InstanceManager. CDI injection will not be available in Servlets, Filters, or Listeners", e);
-			}
-		}
-
-		if (mss2tomcat)
-		{
-			try
-			{
-				SipWeldForwardingInstanceManager.replacInstanceManager(sce, manager);
-				log.info("MSS2 on top of Tomcat 7 detected, CDI injection will be available in Servlets and Filters. Injection into Listeners is not supported");
-			}
-			catch (Exception e)
-			{
-				log.error("Unable to replace MSS 2 Tomcat 7 InstanceManager. CDI injection will not be available in Servlets, Filters, or Listeners", e);
-			}
-		}
-
-		if (!tomcat && !jetty && !tomcat7 && !mss2tomcat && !mss1tomcat && !mss1jboss5) {
 			log.info("No supported servlet container detected, CDI injection will NOT be available in Servlets, Filtersor or Listeners");
+			if (log.isDebugEnabled())
+				log.debug("Exception dump from Container lookup: " + dump);
+		}
+		else
+		{
+			container.initialize(cc);
+			this.container = container;
 		}
 
 		// Push the manager into the servlet context so we can access in JSF
@@ -353,13 +228,12 @@ public class SipServletsWeldListener extends ForwardingServletListener
 			context.setAttribute(EXPRESSION_FACTORY_NAME,
 					manager.wrapExpressionFactory(jspApplicationContext.getExpressionFactory()));
 		}
-		//		}
 
 		bootstrap.deployBeans().validateBeans().endInitialization();
 		super.contextInitialized(sce);
 
 		//Initialize SipServlets tools
-//		ConvergedApplication convergedApplication = new ConvergedApplication(sce.getServletContext());
+		//		ConvergedApplication convergedApplication = new ConvergedApplication(sce.getServletContext());
 		manager.fireEvent(new InternalServletContextEvent(sce.getServletContext()), InitializedLiteral.INSTANCE);
 	}
 
@@ -368,4 +242,53 @@ public class SipServletsWeldListener extends ForwardingServletListener
 	{
 		return weldListener;
 	}
+
+	/**
+	 * Find container env.
+	 *
+	 * @param cc the container context
+	 * @param dump the exception dump
+	 * @return valid container or null
+	 */
+	protected Container findContainer(ContainerContext cc, StringBuilder dump)
+	{
+		ServiceLoader<Container> extContainers = ServiceLoader.load(Container.class, getClass().getClassLoader());
+		Container container = checkContainers(cc, dump, extContainers);
+		
+		//First check for MSS on JBoss5 container
+		if (container == null)
+			container = checkContainers(cc, dump, Arrays.asList(
+					MSSJBoss5Container.INSTANCE)
+					);
+		
+		//If MSS-JBoss5 not found, continue for the rest of the containers that we support
+		if (container == null)
+			container = checkContainers(cc, dump, Arrays.asList(
+					//Order is important of the containers, first check for MSS-Tomcat and then for Tomcat
+					MSSTomcat7Container.INSTANCE,
+					Tomcat7Container.INSTANCE,
+					MSSTomcat6Container.INSTANCE,
+					Tomcat6Container.INSTANCE)
+					);
+
+		return container;
+	}
+
+	protected Container checkContainers(ContainerContext cc, StringBuilder dump, Iterable<Container> containers)
+	{
+		for (Container c : containers)
+		{
+			try
+			{
+				if (c.touch(cc))
+					return c;
+			}
+			catch (Throwable t)
+			{
+				dump.append(c).append("->").append(t.getMessage()).append("\n");
+			}
+		}
+		return null;
+	}
+
 }

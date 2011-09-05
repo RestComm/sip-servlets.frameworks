@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -23,21 +24,19 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
 			<artifactId>sip-servlets-spec</artifactId>
-			<version>1.5.0.FINAL</version>
+			<version>${mss1.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -71,13 +70,11 @@
 				<dependency>
 					<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
 					<artifactId>ctf-core</artifactId>
-					<version>1.0.0-SNAPSHOT</version>
 				</dependency>
 
 				<dependency>
 					<groupId>org.jboss.weld.servlet</groupId>
 					<artifactId>weld-servlet</artifactId>
-					<version>1.1.0.Final</version>
 				</dependency>
 			</dependencies>
 
@@ -106,21 +103,18 @@
 				<dependency>
 					<groupId>javax.enterprise</groupId>
 					<artifactId>cdi-api</artifactId>
-					<version>1.0</version>
 				</dependency>
 
 				<dependency>
 					<groupId>org.jboss.weld.servlet</groupId>
 					<artifactId>weld-servlet</artifactId>
-					<scope>runtime</scope>
-					<version>1.1.0.Final</version>
 					<classifier>jboss5</classifier>
 				</dependency>
 
 				<dependency>
 					<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
-					<artifactId>ctf-core-jboss5</artifactId>
-					<version>1.0.0-SNAPSHOT</version>
+					<artifactId>ctf-core</artifactId>
+					<classifier>jboss5</classifier>
 				</dependency>
 			</dependencies>
 
@@ -145,19 +139,19 @@
 	<!-- repositories -->
 	<repositories>
 		<repository>
-		  <id>jboss-public-repository-group</id>
-		  <name>JBoss Public Maven Repository Group</name>
-		  <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-		  <layout>default</layout>
-		  <releases>
-		    <enabled>true</enabled>
-		    <updatePolicy>never</updatePolicy>
-		  </releases>
-		  <snapshots>
-		    <enabled>true</enabled>
-		    <updatePolicy>never</updatePolicy>
-		  </snapshots>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
 		</repository>
-</repositories>
+	</repositories>
 
 </project>

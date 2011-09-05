@@ -34,7 +34,7 @@ import org.mobicents.servlet.sip.ctf.examples.modules.CallStatusContainer;
 
 
 @ApplicationScoped
-@WebServlet(urlPatterns={"/status"}, asyncSupported=true, loadOnStartup=1)
+@WebServlet(urlPatterns={"/status"}, asyncSupported=true, loadOnStartup=0)
 public class StatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

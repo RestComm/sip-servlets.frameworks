@@ -2,7 +2,7 @@
 
 	<listener>
 		<listener-class>
-			org.mobicents.servlet.sip.weld.environment.servlet.SipServletsWeldListener
+			org.mobicents.servlet.sip.weld.environment.servlet.SipServletsListener
 		</listener-class>
 	</listener>
 	
