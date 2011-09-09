@@ -8,7 +8,7 @@ import javax.naming.NamingException;
 
 import org.jboss.weld.environment.servlet.inject.AbstractInjector;
 import org.jboss.weld.manager.api.WeldManager;
-import org.mobicents.servlet.sip.annotations.SipInstanceManager;
+import org.mobicents.servlet.sip.catalina.annotations.SipInstanceManager;
 
 public class SipWeldInstanceManager extends AbstractInjector implements SipInstanceManager {
 

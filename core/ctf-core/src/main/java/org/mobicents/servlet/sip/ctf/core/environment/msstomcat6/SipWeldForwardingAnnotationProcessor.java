@@ -23,8 +23,8 @@ import org.jboss.weld.environment.servlet.util.Reflections;
 import org.jboss.weld.manager.api.WeldManager;
 import org.mobicents.servlet.sip.annotations.SipAnnotationProcessor;
 import org.mobicents.servlet.sip.annotations.SipAnnotationProcessorImpl;
+import org.mobicents.servlet.sip.core.SipContext;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
-import org.mobicents.servlet.sip.startup.SipContext;
 
 public class SipWeldForwardingAnnotationProcessor extends SipForwardingAnnotationProcessor
 {

@@ -12,12 +12,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/juli/6.0.32/juli-6.0.32.jar"/>
 	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar" sourcepath="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/servlet-api/6.0.32/servlet-api-6.0.32.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-annotations/2.0.0.ALPHA2/sip-servlets-annotations-2.0.0.ALPHA2.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-client/2.0.0.ALPHA2/sip-servlets-client-2.0.0.ALPHA2.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-impl/2.0.0.ALPHA2/sip-servlets-impl-2.0.0.ALPHA2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jboss5/1.6.0.FINAL/sip-servlets-jboss5-1.6.0.FINAL.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-jruby/2.0.0.ALPHA2/sip-servlets-jruby-2.0.0.ALPHA2.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-spec/2.0.0.ALPHA2/sip-servlets-spec-2.0.0.ALPHA2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-tomcat-7/2.0.0.ALPHA2/sip-servlets-tomcat-7-2.0.0.ALPHA2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-annotations-api/7.0.8/tomcat-annotations-api-7.0.8.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-api/7.0.8/tomcat-api-7.0.8.jar"/>
@@ -26,6 +21,11 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-servlet-api/7.0.8/tomcat-servlet-api-7.0.8.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-util/7.0.8/tomcat-util-7.0.8.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jboss/weld/servlet/weld-servlet/1.1.2.Final/weld-servlet-1.1.2.Final.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-tomcat-jboss-4.2.x"/>
+	<classpathentry kind="var" path="M2_REPO/org/mobicents/servlet/sip/sip-servlets-tomcat-jboss4/1.7.0-SNAPSHOT/sip-servlets-tomcat-jboss4-1.7.0-SNAPSHOT.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-core-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-client"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-impl"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-catalina"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sip-servlets-spec"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

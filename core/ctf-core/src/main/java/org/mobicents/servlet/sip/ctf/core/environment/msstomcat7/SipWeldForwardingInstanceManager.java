@@ -22,7 +22,7 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.tomcat.InstanceManager;
 import org.jboss.weld.environment.tomcat7.WeldForwardingInstanceManager;
 import org.jboss.weld.manager.api.WeldManager;
-import org.mobicents.servlet.sip.annotations.SipInstanceManager;
+import org.mobicents.servlet.sip.catalina.annotations.SipInstanceManager;
 import org.mobicents.servlet.sip.startup.ConvergedApplicationContextFacade;
 
 

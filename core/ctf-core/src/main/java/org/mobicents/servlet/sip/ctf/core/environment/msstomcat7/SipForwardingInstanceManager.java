@@ -6,7 +6,7 @@ import javax.naming.NamingException;
 
 import org.apache.tomcat.InstanceManager;
 import org.jboss.weld.environment.tomcat7.ForwardingInstanceManager;
-import org.mobicents.servlet.sip.annotations.SipInstanceManager;
+import org.mobicents.servlet.sip.catalina.annotations.SipInstanceManager;
 
 public abstract class SipForwardingInstanceManager extends ForwardingInstanceManager implements SipInstanceManager{
 
