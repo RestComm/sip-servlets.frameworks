@@ -3,7 +3,14 @@
   <comment>Mobicents :: Parent pom for 2.x releases. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
     <project>ctf-core-extension</project>
-    <project>sip-servlets-tomcat-jboss4</project>
+    <project>sip-servlets-annotations</project>
+    <project>sip-servlets-catalina-7</project>
+    <project>sip-servlets-client</project>
+    <project>sip-servlets-core-api</project>
+    <project>sip-servlets-impl</project>
+    <project>sip-servlets-jboss-5</project>
+    <project>sip-servlets-jruby</project>
+    <project>sip-servlets-spec</project>
   </projects>
   <buildSpec>
     <buildCommand>

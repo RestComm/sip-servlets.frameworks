@@ -42,16 +42,22 @@
 		<!-- Mobicents Dependencies -->
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
-			<artifactId>sip-servlets-tomcat-7</artifactId>
+			<artifactId>sip-servlets-tomcat-jboss4</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
-			<artifactId>sip-servlets-tomcat-jboss4</artifactId>
+			<artifactId>sip-servlets-impl</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mobicents.servlet.sip</groupId>
+			<artifactId>sip-servlets-catalina-7</artifactId>
+			<scope>provided</scope>
+		</dependency>		
+		
 		<!-- CTF Extension artifact -->
 		<dependency>
 			<groupId>org.mobicents.servlet.sip.ctf.core</groupId>
@@ -60,11 +66,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.mobicents.servlet.sip</groupId>
-			<artifactId>sip-servlets-impl</artifactId>
-			<scope>provided</scope>
-		</dependency>
+
 
 		<!-- Tomcat 7 Dependencies -->
 		<dependency>

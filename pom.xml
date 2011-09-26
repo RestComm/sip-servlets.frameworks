@@ -56,9 +56,8 @@
 		<tomcat6.version>6.0.32</tomcat6.version>
 		<jboss5.version>5.1.0.GA</jboss5.version>
 
-		<mss1.version>1.6.0.FINAL</mss1.version>
-		<mss2.version>2.0.0.ALPHA2</mss2.version>
-
+ 		<mss.version>1.7.0-SNAPSHOT</mss.version>
+		
 		<weld.version>1.1.2.Final</weld.version>
 		<cdiapi.version>1.0</cdiapi.version>
 	</properties>
@@ -124,38 +123,38 @@
 			<!-- Mobicents Dependencies -->
 			<dependency>
 				<groupId>org.mobicents.servlet.sip</groupId>
-				<artifactId>sip-servlets-tomcat-7</artifactId>
-				<version>${mss2.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.mobicents.servlet.sip</groupId>
 				<artifactId>sip-servlets-impl</artifactId>
-				<version>${mss2.version}</version>
+				<version>${mss.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.mobicents.servlet.sip</groupId>
 				<artifactId>sip-servlets-jboss5</artifactId>
-				<version>${mss1.version}</version>
+				<version>${mss.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.mobicents.servlet.sip</groupId>
 				<artifactId>sip-servlets-tomcat-jboss4</artifactId>
-				<version>${mss1.version}</version>
+				<version>${mss.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.mobicents.servlet.sip</groupId>
 				<artifactId>sip-servlets-spec</artifactId>
-				<version>${mss2.version}</version>
+				<version>${mss.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
+		<dependency>
+			<groupId>org.mobicents.servlet.sip</groupId>
+			<artifactId>sip-servlets-catalina-7</artifactId>
+			<version>${mss.version}</version>
+			<scope>provided</scope>
+		</dependency>	
 
 			<!-- CTF dependencies for examples -->
 			<dependency>

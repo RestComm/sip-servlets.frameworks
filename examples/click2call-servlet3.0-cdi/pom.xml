@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>org.mobicents.servlet.sip</groupId>
 			<artifactId>sip-servlets-spec</artifactId>
-			<version>${mss2.version}</version>
+			<version>${mss.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
