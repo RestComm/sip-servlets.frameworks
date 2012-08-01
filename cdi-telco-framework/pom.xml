@@ -220,7 +220,7 @@
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<preparationGoals>clean install</preparationGoals>
 					<tagBase>
-						https://gvagenas@code.google.com/p/sipservlets.frameworks/
+						https://code.google.com/p/sipservlets.frameworks/
 					</tagBase>
 				</configuration>
 			</plugin>
@@ -241,18 +241,18 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>2.0-beta-6</version>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<groupId>org.mobicents.tools</groupId>
 				<version>${mobicents.tools.mavenplugin.eclipse.version}</version>
 				<inherited>false</inherited>
 				<executions />
 				<configuration>
-					<!--generateProjectsForModules>true</generateProjectsForModules -->
+					generateProjectsForModules>true</generateProjectsForModules
 					<resolveTransitiveDependencies>true</resolveTransitiveDependencies>
 					<eclipseProjectName>cdi-telco-framework</eclipseProjectName>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 	<profiles>
