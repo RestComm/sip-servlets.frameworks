@@ -56,8 +56,8 @@
 		<tomcat6.version>6.0.32</tomcat6.version>
 		<jboss5.version>5.1.0.GA</jboss5.version>
 
- 		<mss.version>1.7.0-SNAPSHOT</mss.version>
-		
+		<mss.version>1.7.0.FINAL</mss.version>
+
 		<weld.version>1.1.2.Final</weld.version>
 		<cdiapi.version>1.0</cdiapi.version>
 	</properties>
@@ -129,14 +129,14 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.mobicents.servlet.sip</groupId>
+				<groupId>org.mobicents.servlet.sip.containers</groupId>
 				<artifactId>sip-servlets-jboss5</artifactId>
 				<version>${mss.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>org.mobicents.servlet.sip</groupId>
+				<groupId>org.mobicents.servlet.sip.containers</groupId>
 				<artifactId>sip-servlets-tomcat-jboss4</artifactId>
 				<version>${mss.version}</version>
 				<scope>provided</scope>
@@ -149,12 +149,12 @@
 				<scope>provided</scope>
 			</dependency>
 
-		<dependency>
-			<groupId>org.mobicents.servlet.sip</groupId>
-			<artifactId>sip-servlets-catalina-7</artifactId>
-			<version>${mss.version}</version>
-			<scope>provided</scope>
-		</dependency>	
+			<dependency>
+				<groupId>org.mobicents.servlet.sip.containers</groupId>
+				<artifactId>sip-servlets-catalina-7</artifactId>
+				<version>${mss.version}</version>
+				<scope>provided</scope>
+			</dependency>
 
 			<!-- CTF dependencies for examples -->
 			<dependency>
@@ -269,6 +269,19 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
+
+		<repository>
+			<id>mobicents-releases-repository</id>
+			<name>Mobicents Releases Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/releases/</url>
+		</repository>
+
+		<repository>
+			<id>mobicents-snapshots-repository</id>
+			<name>Mobicents Releases Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
+
 	</repositories>
 
 </project>

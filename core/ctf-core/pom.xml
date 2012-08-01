@@ -41,7 +41,7 @@
 
 		<!-- Mobicents Dependencies -->
 		<dependency>
-			<groupId>org.mobicents.servlet.sip</groupId>
+			<groupId>org.mobicents.servlet.sip.containers</groupId>
 			<artifactId>sip-servlets-tomcat-jboss4</artifactId>
 			<scope>provided</scope>
 		</dependency>
@@ -53,7 +53,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.mobicents.servlet.sip</groupId>
+			<groupId>org.mobicents.servlet.sip.containers</groupId>
 			<artifactId>sip-servlets-catalina-7</artifactId>
 			<scope>provided</scope>
 		</dependency>		
@@ -84,7 +84,7 @@
 
 		<!-- JBoss5 Dependencies -->
 		<dependency>
-			<groupId>org.mobicents.servlet.sip</groupId>
+			<groupId>org.mobicents.servlet.sip.containers</groupId>
 			<artifactId>sip-servlets-jboss5</artifactId>
 			<scope>provided</scope>
 		</dependency>

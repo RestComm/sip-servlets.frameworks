@@ -53,7 +53,7 @@ public class SimpleSipServlet {
 	 */
 	
 	//SipFactory injection
-	@Resource
+	@Inject
 	private SipFactory sipFactory;
 	
 	//sipRegistar will process the Registration request 

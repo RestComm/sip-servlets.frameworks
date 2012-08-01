@@ -3,15 +3,19 @@ package org.mobicents.servlet.sip.ctf.core.extension;
 import static org.jboss.weld.logging.messages.ServletMessage.ONLY_HTTP_SERVLET_LIFECYCLE_DEFINED;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.spi.BeanManager;
+import javax.enterprise.inject.spi.ObserverMethod;
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.sip.SipErrorEvent;
 import javax.servlet.sip.SipErrorListener;
 import javax.servlet.sip.SipServlet;
+import javax.servlet.sip.SipServletContextEvent;
+import javax.servlet.sip.SipServletListener;
 import javax.servlet.sip.SipServletMessage;
 import javax.servlet.sip.SipServletRequest;
 import javax.servlet.sip.SipServletResponse;
@@ -23,6 +27,7 @@ import org.mobicents.servlet.sip.ctf.core.extension.context.sip.SipApplicationSe
 import org.mobicents.servlet.sip.ctf.core.extension.context.sip.SipSessionContext;
 import org.mobicents.servlet.sip.ctf.core.extension.event.error.literal.NoAckReceivedLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.error.literal.NoPrackReceivedLiteral;
+import org.mobicents.servlet.sip.ctf.core.extension.event.request.Invite;
 import org.mobicents.servlet.sip.ctf.core.extension.event.request.literal.AckLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.request.literal.ByeLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.request.literal.CancelLiteral;
@@ -43,6 +48,7 @@ import org.mobicents.servlet.sip.ctf.core.extension.event.response.literal.Provi
 import org.mobicents.servlet.sip.ctf.core.extension.event.response.literal.RedirectResponseLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.response.literal.ResponseLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.response.literal.SuccessResponseLiteral;
+import org.mobicents.servlet.sip.ctf.core.extension.event.servlet.literal.ServletInitializedLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.session.literal.SipApplicationSessionLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.event.session.literal.SipSessionLiteral;
 import org.mobicents.servlet.sip.ctf.core.extension.sessionlisteners.SipApplicationSessionContextInitialization;
@@ -58,8 +64,8 @@ import org.mobicents.servlet.sip.ctf.core.extension.sessionlisteners.SipSessionC
 
 @ApplicationScoped
 @javax.servlet.sip.annotation.SipServlet(loadOnStartup=1)
-public class SipServletsEntryPoint extends SipServlet implements SipErrorListener{
-
+public class SipServletsEntryPoint extends SipServlet implements SipErrorListener
+{
 	private static final long serialVersionUID = 1L;
 
 //	private transient SipSessionContext sipSessionContext;
@@ -126,7 +132,7 @@ public class SipServletsEntryPoint extends SipServlet implements SipErrorListene
 
 		if (sipMethod.equalsIgnoreCase("INVITE"))
 			beanManager.fireEvent(req, InviteLiteral.INSTANCE);
-
+			
 		if (sipMethod.equalsIgnoreCase("ACK"))
 			beanManager.fireEvent(req, AckLiteral.INSTANCE);
 
