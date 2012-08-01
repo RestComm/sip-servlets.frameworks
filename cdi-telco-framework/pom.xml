@@ -220,7 +220,7 @@
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<preparationGoals>clean install</preparationGoals>
 					<tagBase>
-						https://mobicents.googlecode.com/svn/tags/frameworks/sip-servlets/cdi-telco-framework/
+						https://gvagenas@code.google.com/p/sipservlets.frameworks/
 					</tagBase>
 				</configuration>
 			</plugin>
@@ -232,8 +232,8 @@
 					<compilerArguments>
 						<g />
 					</compilerArguments>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 			<plugin>
