@@ -9,12 +9,12 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>cdi-telco-framework-docs-sources-jbcp</artifactId>
+	<artifactId>cdi-telco-framework-docs-sources-telescale</artifactId>
 			
 	<properties>
-		<platform.name>JBoss Communications</platform.name>
-		<short.platform.name>JBCP SIP Servlets</short.platform.name>
-		<cmd.platform.name>jbcp-ss</cmd.platform.name>
+		<platform.name>Telescale Platform</platform.name>
+		<short.platform.name>Telescale SIP Servlets</short.platform.name>
+		<cmd.platform.name>telescale-ss</cmd.platform.name>
 		<ctf.version>${project.version}</ctf.version>
 		<author.email.ivelin>iivanov@redhat.com</author.email.ivelin>
 		<author.email.eduardo>emartins@redhat.com</author.email.eduardo>
